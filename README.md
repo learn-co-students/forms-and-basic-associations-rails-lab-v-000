@@ -26,3 +26,5 @@ songs should have an artist and you should be able to find or create an artist b
 artists have a name
 
 when creating an artist you should be able to add an arbitrary amount of songs via artist[song_names][] and a custom writer artist#song_names= that can take a list of song names as strings and for each one build an associated song for the artist with that name. the song edit form should then be able to edit that song and assign a genre.
+
+<a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
