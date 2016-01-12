@@ -9,6 +9,14 @@ RSpec.describe Song, type: :model do
     end
   end
 
+  describe 'artist_name=' do
+    it 'sets the artist to the artist of the specified name' do
+      song = Song.new
+      song.artist_name = 'Rock Hudson'
+      expect(song.artist.name).to eq 'Rock Hudson'
+    end
+  end  
+
   describe 'note_contents=' do
     it 'sets notes for a song' do
       song = Song.new
