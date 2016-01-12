@@ -21,7 +21,7 @@ In this lab, we're going to make a song library. Our data model looks like this:
   * artists have a name (string)
   * artists have many Songs
 * Song
-  * songs have a name (string)
+  * songs have a title (string)
   * songs belong to an Artist
   * songs belong to a Genre
 * Genre
