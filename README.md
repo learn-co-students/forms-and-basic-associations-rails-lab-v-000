@@ -1,4 +1,3 @@
-
 # Forms And Basic Associations Rails Lab
 
 ## Objectives
@@ -14,17 +13,35 @@
 
 We'll give them the base models and controllers with index and show actions but they have to create migrations to add the correct foreign keys and wire up the associations correctly. then they will need to create the new/create and edit/update actions along with the forms that have the correct fields that write associated data to the model through custom writers.
 
-1. songs/form
+## A song library
 
-songs have a name
-songs have a genre and genre should be set via a select box of genre options writing to song[genre_id]
+In this lab, we're going to make a song library. Our data model looks like this:
 
-songs should have an artist and you should be able to find or create an artist by name using a form field song[artist_name] and a custom writer artist_name=
+* Artist
+  * artists have a name (string)
+  * artists have many Songs
+* Song
+  * songs have a title (string)
+  * songs belong to an Artist
+  * songs belong to a Genre
+* Genre
+  * genres have a name (string)
+  * genres have many songs
+* Notes
+  * notes have content (string)
+  * notes belong to a Song
 
-2. artists/form
+## Instructions
 
-artists have a name
+The base models, controllers, and seed data have been provided for you. The associations have not been wired up.
 
-when creating an artist you should be able to add an arbitrary amount of songs via artist[song_names][] and a custom writer artist#song_names= that can take a list of song names as strings and for each one build an associated song for the artist with that name. the song edit form should then be able to edit that song and assign a genre.
+1. The basic models and such have been made for you.
+2. Write `app/views/songs/new.html.erb`. This form should have:
+  * A text input box that sets the song's name.
+  * A text input box for the artist, which autocompletes with existing Artist names.
+  * A selection box for genre. Users should be able to pick amongst existing genres only.
+  * Several text input boxes to add notes to the song. These should have the ids `song_note_contents_1`, `song_note_contents_2`, and so on for the specs to pass.
+
+There are feature tests!
 
 <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' data-visibility='hidden'>View this lesson on Learn.co</a>

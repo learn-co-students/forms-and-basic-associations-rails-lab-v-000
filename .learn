@@ -1,5 +1,8 @@
 tags:
-  - tag1
+  - forms
+  - associations
+  - collection_select
+  - datalist  
 languages:
-  - language1
+  - ruby
 resources: 0
