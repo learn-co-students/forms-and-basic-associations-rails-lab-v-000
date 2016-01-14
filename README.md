@@ -35,13 +35,13 @@ In this lab, we're going to make a song library. Our data model looks like this:
 
 The base models, controllers, and seed data have been provided for you. The associations have not been wired up.
 
-1. Create migrations and model associations between Artist, Song, and Note.
-2. Write `app/views/songs/_form.html.erb`. This form should have:
+1. The basic models and such have been made for you.
+2. Write `app/views/songs/new.html.erb`. This form should have:
   * A text input box that sets the song's name.
   * A text input box for the artist, which autocompletes with existing Artist names.
   * A selection box for genre. Users should be able to pick amongst existing genres only.
   * Several text input boxes to add notes to the song. These should have the ids `song_note_contents_1`, `song_note_contents_2`, and so on for the specs to pass.
 
-There are feature tests and model tests. In the end, they should all pass.
+There are feature tests!
 
 <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
