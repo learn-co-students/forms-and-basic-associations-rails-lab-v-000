@@ -9,10 +9,6 @@
 5. Define a has_many association writer.
 6. Build a form field that will delegate to a has_many association writer. (owner#pet_names=) through controller mass assignment.
 
-## Notes
-
-We'll give them the base models and controllers with index and show actions but they have to create migrations to add the correct foreign keys and wire up the associations correctly. then they will need to create the new/create and edit/update actions along with the forms that have the correct fields that write associated data to the model through custom writers.
-
 ## A song library
 
 In this lab, we're going to make a song library. Our data model looks like this:
