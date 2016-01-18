@@ -9,7 +9,7 @@ class Song < ActiveRecord::Base
 
   def song_notes=(notes)
     notes.each do |note|
-      Note.create(content: note, song_id: self.id)
+      self.notes.build(content: note)
     end
   end
 

@@ -8,8 +8,8 @@
 
   <%= f.collection_select :genre, Genre.all, :id, :name, {}, {:id => "song_genre_id"} %>
 
-  <%= f.text_field :notes, name: "song_notes[]", id: "song_notes_1", list: "artist_list" %>
-  <%= f.text_field :notes, name: "song_notes[]", id: "song_notes_2", list: "artist_list" %>
+  <%= f.text_field :notes, name: "song[song_notes][]", id: "song_notes_1", list: "artist_list" %>
+  <%= f.text_field :notes, name: "song[song_notes][]", id: "song_notes_2", list: "artist_list" %>
   <datalist id="artist_list">
   <% Artist.all.each do |a| %>
     <option value="<%=a.name%>">
