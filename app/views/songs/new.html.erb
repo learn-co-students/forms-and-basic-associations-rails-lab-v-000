@@ -11,6 +11,10 @@
       <% Genre.all.each do |g| %>
         <option name="<%=g.name%>" value="<%=g.name%>">
       <% end %>
-   </datalist>
+   </datalist><br>
+  <%= f.label :note %><br>
+    <input name='song[note_contents][]' id='song_notes_1'><br>
+    <input name='song[note_contents][]' id='song_notes_2'><br>
+    <input name='song[note_contents][]' id='song_notes_3'><br>
   <%= f.submit %>
 <% end %>

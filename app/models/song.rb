@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   has_many :notes
 
   def artist_name
-    self.try(:artist).try(:name)
+    self.artist.name if artist
   end
 
   def artist_name=(name)
@@ -12,12 +12,24 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    self.try(:genre).try(:name)
+    self.genre.name if genre
   end
 
   def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
     self.genre_id = genre.id
     self.save
+  end
+
+  def note_contents
+    self.notes.map(&:content)
+  end
+
+  def note_contents=(notes)
+    notes.each do |content|
+      if content.strip != ''
+        self.notes.build(content: content)
+      end
+    end
   end
 end
