@@ -40,4 +40,4 @@ The base models, controllers, and seed data have been provided for you. The asso
 
 There are feature tests!
 
-<a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' title='Forms And Basic Associations Rails Lab'>Forms And Basic Associations Rails Lab</a> on Learn.co and start learning to code for free.</p>
