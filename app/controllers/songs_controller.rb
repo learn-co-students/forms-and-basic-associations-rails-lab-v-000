@@ -14,9 +14,9 @@ class SongsController < ApplicationController
   def create
     # binding.pry
     @song = Song.new(song_params)
-    params[:song_notes].delete_if {|note| note.blank? }.each do |note|
-      @song.notes.build(content: note)
-    end
+    # params[:song_notes].delete_if {|note| note.blank? }.each do |note|
+    #   @song.notes.build(content: note)
+    # end
     if @song.save
       redirect_to @song
     else
@@ -50,7 +50,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, :genre_id)
+    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
   end
 end
 

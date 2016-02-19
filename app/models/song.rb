@@ -10,7 +10,20 @@ class Song < ActiveRecord::Base
 
  def note_contents
   self.notes.map {|note| note.content} 
-end
+  end
+
+  def note_contents=(notes)
+    # binding.pry
+    song = self
+    notes.select {|f| !f.blank?}.each do |note|
+      song.notes.build(content: note)
+    end
+
+  end
+
+      # params[:song_notes].delete_if {|note| note.blank? }.each do |note|
+    #   @song.notes.build(content: note)
+    # end
 
 end
 
