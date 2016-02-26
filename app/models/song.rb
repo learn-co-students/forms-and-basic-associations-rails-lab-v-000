@@ -16,10 +16,11 @@ class Song < ActiveRecord::Base
     notes.map { |note| note.content }
   end
 
-  def note_contents=(notes)
-    notes.each do |content|
+  def note_contents=(new_notes)
+    new_notes.each do |content|
       unless content.empty?
-        self.notes.build(content: content)
+        note = Note.create(content: content)
+        notes << note
       end
     end
   end
