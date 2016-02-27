@@ -9,7 +9,7 @@ class Song < ActiveRecord::Base
   end
 
   def notes=(notes)
-    notes.each{|note| self.notes.new(content: note)}
+    notes.each{|note| self.notes.new(content: note) unless note == "" }
   end
 
   def note_contents
