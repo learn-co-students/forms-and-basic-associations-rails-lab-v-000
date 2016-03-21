@@ -1,3 +1,9 @@
 <h1>Songs#show</h1>
 
 Title: <%= @song.title %>
+  <%= @params.inspect %>
+
+
+<%= @song.notes.each do |note| %>
+  <%= note.content %>
+<% end %>
