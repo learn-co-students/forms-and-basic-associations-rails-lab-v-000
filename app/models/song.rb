@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   has_many :notes
 
   def artist_name
-    self.artist.name if self.artist
+    self.try(:artist).try(:name)
   end
 
   def artist_name=(name)
@@ -19,7 +19,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    self.notes.collect{|n| n.content}
+    self.notes.collect(&:content)
   end
 end
 
