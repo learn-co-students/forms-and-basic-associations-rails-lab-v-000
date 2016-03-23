@@ -1,0 +1,17 @@
+<%= form_for @song  do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :artist_name %>
+    <%= f.text_field :artist_name, list: "artist_autocomplete" %> 
+    <datalist id="artist_autocomplete">
+      <% Artist.all.each do |artist| %> 
+        <option value="<%= artist.name %>">
+      <% end %>
+    </datalist>
+  </p>
+
+  <%= f.submit %>
+<% end %>

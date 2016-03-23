@@ -1,3 +1,6 @@
 <h1>Songs#show</h1>
 
-Title: <%= @song.title %>
+<p>Title: <%= @song.title %></p>
+<p>Artist: <%= @song.artist_name %></p>
+
+<p><%= link_to "Edit Song", edit_song_path(@song) %></p>
