@@ -4,6 +4,19 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+  <%= f.label "Artist" %>
+  <%= f.text_field :artist_name, list: "artists_autocomplete" %>
+  <datalist id="artists_autocomplete">
+    <%= Artist.all.each do |artist| %>
+      <option value="<%= artist.name %>">
+    <% end %>
+  </datalist>
+  <textarea name="song[artist]" ></textarea>
+
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+
+  <input type="text" name="song[note_contents][]" id="song_notes_1">
+  <input type="text" name="song[note_contents][]" id="song_notes_2">
 
   <%= f.submit %>
 <% end %>
