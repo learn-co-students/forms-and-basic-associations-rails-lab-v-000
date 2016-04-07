@@ -33,7 +33,7 @@ The base models, controllers, and seed data have been provided for you. The asso
 
 1. The basic models and such have been made for you.
 2. Write `app/views/songs/new.html.erb`. This form should have:
-  * A text input box that sets the song's name.
+  * A text input box that sets the song's title.
   * A text input box for the artist, which autocompletes with existing Artist names.
   * A selection box for genre. Users should be able to pick amongst existing genres only.
   * Several text input boxes to add notes to the song. These should have the ids `song_note_contents_1`, `song_note_contents_2`, and so on for the specs to pass. (You might need to search around for how to pass an array using `strong_params`!)
@@ -41,3 +41,5 @@ The base models, controllers, and seed data have been provided for you. The asso
 There are feature tests!
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' title='Forms And Basic Associations Rails Lab'>Forms And Basic Associations Rails Lab</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab'>Forms and Basic Associations Lab</a> on Learn.co and start learning to code for free.</p>
