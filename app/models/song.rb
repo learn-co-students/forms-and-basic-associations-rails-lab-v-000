@@ -8,20 +8,19 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist.name if self.artist
+    self.try(:genre).try(:name)
   end
 
   def note_contents=(notes)
-    notes.each do |note|
-      if note.strip != ""
-        content = self.notes.build(content: note)
-        content.save
+    notes.each do |content|
+      if content.strip != ""
+        self.notes.build(content: content)
       end
     end
   end
 
   def note_contents
-    self.notes.collect {|note| note.content }
+    self.notes.map(&:content)
   end
 
 end
