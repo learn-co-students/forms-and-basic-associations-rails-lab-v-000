@@ -12,14 +12,18 @@ class Song < ActiveRecord::Base
     self.artist
   end
 
-  def note_contents=(notes)
-    notes.each do |content|
+  def note_contents=(contents)
+    contents.each do |content|
       note = Note.create(content: content)
       self.notes << note
     end
   end
 
   def note_contents
-    self.notes
+    @note_array = []
+    self.notes.each do |note|
+      @note_array << note.content
+    end
+    @note_array
   end
 end
