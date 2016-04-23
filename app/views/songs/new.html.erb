@@ -13,9 +13,9 @@
 
   <p><%= f.label :genre_id %>: <%= f.collection_select :genre_id, Genre.all, :id, :name %></p>
   <p>Feel free to make some notes:</p>
-  <p>  <input name='song[note_contents][]' id='song_note_contents_1'></p>
-  <p>  <input name='song[note_contents][]' id='song_note_contents_2'></p>
-  <p>  <input name='song[note_contents][]' id='song_note_contents_3'></p>
+  <p>  <input name='song[note_contents][]' id='song_notes_1'></p>
+  <p>  <input name='song[note_contents][]' id='song_notes_2'></p>
+  <p>  <input name='song[note_contents][]' id='song_notes_3'></p>
   <%= f.submit %>
 <% end %>
 
