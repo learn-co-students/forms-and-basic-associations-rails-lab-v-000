@@ -159,4 +159,17 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
+notes = Hash[[
+  "What a song",
+  "Awesome notes",
+  "I like the beat",
+  "Boogers",
+  "Could have tried harder",
+  "Made me regret things",
+  "Also think it is boogers",
 
+].map { |note| [note, Note.find_or_create_by(content: note)] }]
+
+
+@artist = Artist.create!(name: "Tyler")
+@song = @artist.songs.create!(title: "Tyler's Old Bill")
