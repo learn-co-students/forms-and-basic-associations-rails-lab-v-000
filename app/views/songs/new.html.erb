@@ -3,8 +3,8 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <%= f.label :artist_name, "Artist"%>
-  <%= f.text_field :artist_name, list: "song_artist_name"%>
+  <%= f.label :artist, "Artist"%>
+  <%= f.text_field :artist, list: "song_artist_name"%>
   <datalist id="song_artist_name">
     <%=Artist.all.each do |artist|%>
       <option value="<%=artist.name%>">
