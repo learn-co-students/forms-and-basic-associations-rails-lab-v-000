@@ -8,9 +8,27 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    if !self.artist.nil?
-      self.artist.name
-    end
+    self.try(:artist).try(:name)
+
+    # #try
+
+# Invokes the method identified by the symbol method, passing it any arguments and/or the block specified, just like the regular Ruby Object#send does.
+
+# Unlike that method however, a NoMethodError exception will not be raised and nil will be returned instead, if the receiving object is a nil object or NilClass.
+
+# If try is called without a method to call, it will yield any given block with the object.
+
+  # without #try
+  # @person && @person.name
+  # or
+  # @person ? @person.name : nil
+
+  # with #try
+  # @person.try(:name)
+  
+    # if !self.artist.nil?
+    #   self.artist.name
+    # end
   end
 
   def genre_name=(name)
@@ -18,9 +36,12 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    if !self.genre.nil?
-      self.genre.name
-    end
+    # learn solution
+    self.try(:genre).try(:name)
+
+    # if !self.genre.nil?
+    #   self.genre.name
+    # end
   end
 
   def note_contents=(contents)
@@ -33,11 +54,14 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    if !self.notes.nil?
-      self.notes.map do |note|
-        @content = note.content
-      end
-    end
+    # solution on learn
+    self.notes.map(&:content)
+
+    # if !self.notes.nil?
+    #   self.notes.map do |note|
+    #     note.content
+    #   end
+    # end
   end
 end
 
