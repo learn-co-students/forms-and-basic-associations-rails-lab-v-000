@@ -30,7 +30,11 @@ class Song < ActiveRecord::Base
    end
 
    def note_contents
-      self.notes.map(&:content)
-   end
+     output = []
+  self.notes.each do |x|
+    output << x.content
+  end
+  output.delete_if {|x| x== ''}
+end
 
 end
