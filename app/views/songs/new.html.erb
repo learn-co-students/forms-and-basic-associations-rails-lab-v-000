@@ -4,6 +4,20 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+<!-- 
+  <datalist id= "song_artist_name">
+    <%= Artist.all.each do |artist| %>
+      <option value="<%= artist.name %>">
+    <% end %>
+  </datalist>
+  <br /> -->
+
+<!-- working below, gotta remove text_fields -->
+  <input name="song[note_contents][]" id="song_note_contents_1">
+  <input name="song[note_contents][]" id="song_note_contents_2">
+<%binding.pry%>
+  <%= f.collection_select(:genre_id, Genre.all, :id, :name) %>
+  <br />
 
   <%= f.submit %>
 <% end %>
