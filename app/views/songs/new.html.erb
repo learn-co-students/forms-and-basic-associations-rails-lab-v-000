@@ -5,12 +5,7 @@
   <%= f.text_field :title %>
   <br />
 
-  <input list="artist_names">
-  <datalist id="artist_names">
-    <%= Artist.all.each do |artist| %>
-      <option value="<%= artist.name %>"></option>
-    <% end %>
-  </datalist>
+  <%= f.text_field :artist_name, list: 'artist_autocomplete' %>
   <br />
 
 <!-- working below, gotta remove text_fields -->

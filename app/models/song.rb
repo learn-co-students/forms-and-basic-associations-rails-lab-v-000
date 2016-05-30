@@ -17,21 +17,18 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-
-        notes.each do |content|
-          if content !=nil
-            if !content.empty?
-              #binding.pry
-              self.notes.build(content: content)
-              
-            end
-          end
+    notes.each do |content|
+      if content !=nil
+        if !content.empty?
+          #binding.pry
+          self.notes.build(content: content)
         end
-
-     
-    @note_contents = self.notes.collect {|note| note.content}
-
+      end
+    end   
   end
 
+  def note_contents
+    self.notes.collect {|note| note.content}
+  end
 end
 
