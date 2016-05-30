@@ -22,11 +22,12 @@ class Song < ActiveRecord::Base
           if content !=nil
             if !content.empty?
               self.notes << Note.find_or_create_by(content: content)
+              binding.pry
             end
           end
         end
 
-    # binding.pry
+     binding.pry
     @note_contents = self.notes.collect {|note| note.content}
 
   end
