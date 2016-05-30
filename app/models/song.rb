@@ -1,5 +1,5 @@
 class Song < ActiveRecord::Base
-  attr_accessor :artist_name, :genre_name, :note_contents
+  attr_accessor :artist_name, :genre_name
   belongs_to :artist
   belongs_to :genre
   has_many :notes
@@ -20,7 +20,6 @@ class Song < ActiveRecord::Base
     notes.each do |content|
       if content !=nil
         if !content.empty?
-          #binding.pry
           self.notes.build(content: content)
         end
       end
@@ -28,7 +27,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    self.notes.collect {|note| note.content}
+    self.notes.map(&:content)
   end
 end
 
