@@ -160,3 +160,12 @@ genres = Hash[[
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
 
+artists = Hash[[
+  "Pendulum",
+  "Fred V & Grafix",
+  "Deadmau5",
+  "Modest Mouse",
+  "Etherwood",
+  "The Erised",
+  "Knife Party"
+].map { |artist| [artist, Artist.find_or_create_by(name: artist)] }]
