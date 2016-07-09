@@ -21,11 +21,11 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
+    binding.pry
+    notes.delete("")
     notes.each do |note|
-      if note != "" || 
         note =  Note.find_or_create_by(content: note)
         self.notes << note 
-      end
     end
    # contents.each do |content|
      # self.notes
