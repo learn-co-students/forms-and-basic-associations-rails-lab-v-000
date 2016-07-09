@@ -13,7 +13,7 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    genre.name
+    genre.try(:name)
   end
 
   def genre_name=(name)
