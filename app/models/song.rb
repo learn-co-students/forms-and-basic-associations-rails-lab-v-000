@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
   
   def artist_name
-    @artist_name
+    self.artist.try(:name)
   end
 
   def artist_name=(name)
