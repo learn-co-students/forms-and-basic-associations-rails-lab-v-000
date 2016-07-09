@@ -12,7 +12,6 @@ class SongsController < ApplicationController
   end
 
   def create
-    binding.pry
     Song.create(song_params)
   end
 
