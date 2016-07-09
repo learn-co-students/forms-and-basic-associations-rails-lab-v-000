@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
   
   def artist_name
-    artist
+    @artist_name
   end
 
   def artist_name=(name)
@@ -13,7 +13,7 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    self.genre.name
+    genre.name
   end
 
   def genre_name=(name)
