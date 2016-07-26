@@ -24,6 +24,20 @@
   <br>
   Note 3: <input type="text" name="song[note_contents][]" id="song_notes_3">
   <br>
+
+  <!--
+  Normally Rails ignores duplicate parameter names. If the parameter name contains an empty set of square brackets [] then they will be accumulated in an array. If you wanted people to be able to input multiple phone numbers, you could place this in the form:
+  
+  ```
+  <input name="person[phone_number][]" type="text"/>
+  <input name="person[phone_number][]" type="text"/>
+  <input name="person[phone_number][]" type="text"/>
+  ```
+  This would result in params[:person][:phone_number] being an array.
+
+  Source: http://guides.rubyonrails.org/v3.2.13/form_helpers.html#understanding-parameter-naming-conventions
+  -->
+  
   <br />
 
   <%= f.submit %>
