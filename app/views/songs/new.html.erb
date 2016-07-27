@@ -14,7 +14,7 @@
   </datalist>
   <br>
 
-  <%= f.label :genre, "Genre:" %>
+  <%= f.label :genre_id, "Genre:" %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
    <br><br>
 
@@ -37,7 +37,7 @@
 
   Source: http://guides.rubyonrails.org/v3.2.13/form_helpers.html#understanding-parameter-naming-conventions
   -->
-  
+
   <br />
 
   <%= f.submit %>
