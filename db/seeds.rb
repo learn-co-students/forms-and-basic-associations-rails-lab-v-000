@@ -29,7 +29,7 @@ genres = Hash[[
   "Rock",
   "Techno",
   "Industrial",
-  "Alternative",
+  # "Alternative",
   "Ska",
   "Death Metal",
   "Pranks",
