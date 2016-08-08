@@ -10,9 +10,6 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
-    3.times do
-      @song.notes << Note.new
-    end
   end
 
   def create
