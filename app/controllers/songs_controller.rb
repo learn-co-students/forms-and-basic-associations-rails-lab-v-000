@@ -1,3 +1,4 @@
+# http://railscasts.com/episodes/196-nested-model-form-part-1
 class SongsController < ApplicationController
   def index
     @songs = Song.all
@@ -9,11 +10,14 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    3.times do
+      @song.notes << Note.new
+    end
   end
 
   def create
     @song = Song.new(song_params)
-
+    @song.note_contents = song_notes
     if @song.save
       redirect_to @song
     else
@@ -23,12 +27,16 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    3.times do
+      @song.notes << Note.new
+    end
   end
 
   def update
     @song = Song.find(params[:id])
 
     @song.update(song_params)
+    @song.note_contents = song_notes if song_notes
 
     if @song.save
       redirect_to @song
@@ -47,7 +55,13 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, :song_notes)
   end
-end
 
+  def song_notes
+    params[:song_notes].collect do |note|
+      note.values
+    end.flatten if params[:song_notes]
+  end
+
+end

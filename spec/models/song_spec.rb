@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe Song, type: :model do
   describe 'genre_name=' do
