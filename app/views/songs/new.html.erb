@@ -10,14 +10,12 @@
 <%= f.label :Genre %>
 <%= collection_select(:song, :genre_id, Genre.all, :id, :name)%>
 <br>
-<%i = 1%>
-<% @song.notes.each do |note| %>
-    <%= fields_for 'song_notes[]', note do |n| %>
-        <%= n.label :contents %><br>
-        <%= n.text_field :content, id: "song_notes_#{i}" %><br>
-    <% end %>
-    <%i += 1%>
-  <% end %>
+<%= f.label :note_1 %>
+<input name='song[note_contents][]' id='song_notes_1'> <br>
+<%= f.label :note_2 %>
+<input name='song[note_contents][]' id='song_notes_2'><br>
+<%= f.label :note_3 %>
+<input name='song[note_contents][]' id='song_notes_3'>
 <br>
 <%= f.submit%>
 <% end %>
