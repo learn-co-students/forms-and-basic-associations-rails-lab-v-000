@@ -1,11 +1,12 @@
 <h1>Create a Song</h1>
+
 <%= form_for Song.new do |f| %>
     <%= f.label :title %><br>
   <%= f.text_field :title %><br></br>
 
     <%= f.label :song_artist_name %><br>
     <%= f.text_field :song_artist_name, list: "artists_autocomplete", id: "song_artist_name" %><br></br>
-    <datalist id="artists_autocomplete"
+    <datalist id="artists_autocomplete">
     <%= Artist.all.each do |artist| %>
     <option value="<%= artist.name %>">
       <% end %>
