@@ -1,11 +1,9 @@
 <h1>Create a Song</h1>
 
-<%= form_for @song  do |f| %>
-
-  <%= f.collection_select :artist, Artist.all, :id, :name%>
-
+<%= form_for @song do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.text_field :artist_name %>
   <br/>
 
   <%= f.submit %>
