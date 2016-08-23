@@ -8,6 +8,8 @@
 
 # ID3 tag music genres are surprisingly specific.
 
+@kanye = Artist.create(name: "Kanye")
+
 genres = Hash[[
   "Blues",
   "Classic Rock",
