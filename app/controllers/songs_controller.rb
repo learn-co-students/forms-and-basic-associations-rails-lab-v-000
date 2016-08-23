@@ -14,11 +14,9 @@ class SongsController < ApplicationController
   end
 
   def create
-  
-    @song = Song.create(song_params)
-
+    p song_params
+    song = Song.create(song_params)
     redirect_to controller: 'songs', action: 'index'
-
   end
 
   def edit
@@ -47,7 +45,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, :genre_name, note_contents: [])
+    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
   end
 end
 
