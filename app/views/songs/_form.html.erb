@@ -15,7 +15,15 @@
   <br>
 
   <%= f.label :genre %>
+  <!-- What is the order of these arguments - and what does each do? -->
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+
+  <br>
+
+  <!-- Why are these not f. form_for helpers? -->
+  <input name='song[note_contents][]' id='song_notes_1'>  <br>
+  <input name='song[note_contents][]' id='song_notes_2'>  <br>
+  <input name='song[note_contents][]' id='song_notes_3'>  <br>
 
   <%= f.submit %>
 <% end %>
