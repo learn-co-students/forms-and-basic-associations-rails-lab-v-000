@@ -35,7 +35,7 @@ The base models, controllers, and seed data have been provided for you. The asso
   * A text input box that sets the song's title.
   * A text input box for the artist, which autocompletes with existing `Artist` names.
   * A selection box for genre. Users should be able to pick amongst existing genres only.
-  * Several text input boxes to add notes to the song. These should have the ids `song_notes_1`, `song_notes_2`, and so on for the specs to pass. (You might need to search around for how to pass an array using `strong_params`!)
+  * Several text input boxes to add notes to the song. These should have the IDs `song_notes_1`, `song_notes_2`, and so on for the specs to pass. (You might need to search around for how to pass an array using `strong_params`!)
 
 There are feature tests!
 
