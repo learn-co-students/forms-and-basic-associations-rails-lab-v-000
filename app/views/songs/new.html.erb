@@ -5,7 +5,12 @@
   <%= f.text_field :title %><br>
 
   <%= f.label :artist_name, 'Artist Name:' %>
-  <%= f.text_field :artist_name %><br>
+  <%= f.text_field :artist_name, list: 'artist_name_autocomplete' %><br>
+    <datalist id="artist_name_autocomplete">
+      <%= Artist.all.each do |a| %>
+        <option value="<%= a.name %>">
+      <% end %>
+    </datalist>
 
   <%= f.label :genre, 'Genre:' %>
   <%= f.collection_select :genre_id, @genres, :id, :name %><br>
