@@ -3,6 +3,14 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <label>Artist Name:</label>
+  <textarea name="song[artist_name]" id="song_artist_name"></textarea>
+  <label>Genre Name:</label>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  <label>Notes:</label>
+  <textarea name="song[add_note][]" id="song_notes_1"></textarea>
+  <textarea name="song[add_note][]" id="song_notes_2"></textarea>
+  <textarea name="song[add_note][]" id="song_notes_3"></textarea>
   <br />
 
   <%= f.submit %>
