@@ -1,5 +1,4 @@
 <h1>All songs</h1>
-
 <% @songs.each do |song| %>
   <span class=song-title><%= song.title %></span>
   <span class=song-artist><%= song.try(:artist).try(:name) %></span>
