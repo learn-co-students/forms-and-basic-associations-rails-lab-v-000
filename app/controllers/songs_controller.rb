@@ -46,8 +46,8 @@ class SongsController < ApplicationController
 
   private
 
-  def song_params
-    params.require(:song).permit(:title)
+  def song_params                         # Declare the value of note_contents as an array
+    params.require(:song).permit(:artist_name, :title, :genre_id, :note_contents => [])
   end
 end
 
