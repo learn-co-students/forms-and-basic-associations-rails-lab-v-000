@@ -32,9 +32,12 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-    notes.each do |note|
-      self.notes << Note.create(content:note) if note.empty? == false
+    notes.each do |content|
+      self.notes.build(content: content) if content.empty? == false
     end
+    # notes.each do |note|
+    #   self.notes << Note.create(content:note) if note.empty? == false
+    # end
   end
 
   def note_contents
