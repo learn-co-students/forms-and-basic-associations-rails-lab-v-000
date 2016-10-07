@@ -16,7 +16,10 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-  	self.artist.name
+    if self.artist != nil
+
+  	 self.artist.name
+    end
   end
 
   def note_contents=(contents)
