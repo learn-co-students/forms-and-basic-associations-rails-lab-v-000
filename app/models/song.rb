@@ -24,9 +24,13 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(contents)
+    song_id = self.id
   	contents = contents.reject{|content| content.empty?}
   	contents.each do |content|
-  		self.notes << Note.find_or_create_by(content: content)
+  		note = Note.find_or_create_by(content: content)
+      note.song_id = song_id
+      note.save
+      self.notes << note
   	end
   end
 
