@@ -47,7 +47,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, :note_contents=>[]) # note contents holds an empty array which will be populated from the new route / create action with 'song[note_contents][]' from the new form 
   end
 end
-
