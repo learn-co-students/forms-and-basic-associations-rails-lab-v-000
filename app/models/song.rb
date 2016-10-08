@@ -27,8 +27,10 @@ class Song < ActiveRecord::Base
 
   def note_contents=(content)
     content.map do |c|
-      if c.strip != ""
-        self.notes << Note.create(:content=> c)
+      if c == ""
+        c.delete
+      else
+        format_array = self.notes << Note.create(:content=> c)
       end
     end
   end
