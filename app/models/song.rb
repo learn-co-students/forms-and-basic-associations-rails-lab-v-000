@@ -7,8 +7,25 @@ class Song < ActiveRecord::Base
     self.artist = Artist.find_or_create_by(name: name)
   end
 
+  def artist_name
+    self.artist.name
+  end
+
   def genre_name=(name)
     self.genre = Genre.find_by(name: name)
   end
 
+  def genre_name
+    self.genre.name
+  end
+
+  def note_contents=(notes)
+    notes.each do |content|
+      self.notes = Note.create(content: content)
+    end
+  end
+
+  def note_contents
+    self.notes.content
+  end
 end
