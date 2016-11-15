@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'capybara/rspec'
+require 'pry'
 
 describe "the song form", :type => :feature do
   it "creates a song on submit" do
