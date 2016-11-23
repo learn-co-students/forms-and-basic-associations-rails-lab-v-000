@@ -19,7 +19,7 @@ describe "the song form", :type => :feature do
   end
 
   it 'creates a song with a genre' do
-    visit '/songs/new'
+    visit '/songs/new'  
     fill_in :song_title, with: 'Little Earthquakes'
     select 'Alternative', from: 'song_genre_id'
     find('input[name="commit"]').click
