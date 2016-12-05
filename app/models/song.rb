@@ -21,10 +21,12 @@ class Song < ActiveRecord::Base
   	self.genre.name
   end
 
+
   def notes=(notes)
   	notes.each do |note|
   		self.notes << Note.create(content: note[:content])
   	end
+  	# takes from the array's hash with the :content key
   end
 
   def note_contents=(notes_array)
