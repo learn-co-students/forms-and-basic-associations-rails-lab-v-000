@@ -4,11 +4,14 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+
   <%= f.label :song_artist_name %>
-  <%= f.text_field :song_artist_name %>
+  <%= f.text_field :song_artist_name, id: :song_artist_name %>
   <br />
+
   <%= f.label :genre %>
-  <%= f.collection_select :genre, Genre.all, :id, :name %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <br />
+
   <%= f.submit %>
 <% end %>
