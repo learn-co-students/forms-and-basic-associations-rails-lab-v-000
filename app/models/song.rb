@@ -5,19 +5,23 @@ class Song < ActiveRecord::Base
 
 
   def note_contents=(notes)
-    self.note = Note.find_or_create_by(content: notes)
+    notes.each do |content|
+      if content.strip != ""
+        self.notes.build(content: content)
+      end
+    end
   end
   def note_contents
+    self.notes.map(&:content)
 
-
+  end
+  def artist_name
+      self.try(:artist).try(:name)
   end
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
   end
 
-  def artist_name
-    self.artist.name
-  end
 
   def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
@@ -27,8 +31,5 @@ class Song < ActiveRecord::Base
     self.genre.name
   end
 
-  def note=
-    self.note = Note.find_by-or_create_by(genre: enr)
 
-  end
 end
