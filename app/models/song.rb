@@ -23,15 +23,12 @@ class Song < ActiveRecord::Base
     self.notes.map { |note| note.content }
   end
 
-  def note_contents=(content)
-    self.notes << Note.find_or_create_by(content: content)
-  end
-
-  def note_ids=(ids)
-   ids.each do |id|
-     note = Note.find(id)
-     self.notes << note
-   end
+  def note_contents=(contents)
+    contents.each do |content|
+      if content.strip != ''
+        self.notes.build(content: content)
+      end
+    end
   end
 
 end
