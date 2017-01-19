@@ -47,7 +47,11 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:artist_name, :title)
+    # params.require(:song).permit(:artist, :title)
+    #this line retrieves the "artist" string but the method artist_name isn't being called. Might need to call it on the next line but need to
+    #ask how it can be called inside of the permit method
+    # it probably won't be best practice to call the method directly after. It's probably something wrong with the naming of the text boxes
   end
 end
 

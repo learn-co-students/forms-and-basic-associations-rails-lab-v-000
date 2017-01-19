@@ -4,6 +4,10 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+  <!-- it's asking for :song_artist_name but it fails every time I use anything other than :artist for the text_field -->
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name, id: :song_artist_name %>
+  <br />
 
   <%= f.submit %>
 <% end %>
