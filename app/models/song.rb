@@ -13,7 +13,6 @@ class Song < ActiveRecord::Base
 
   def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
-    binding.pry
   end
 
   def genre_name
@@ -24,7 +23,6 @@ class Song < ActiveRecord::Base
     notes.each do |n|
       self.notes << Note.find_or_create_by(content: n) unless n == ""
     end
-    binding.pry
   end
 
   def note_contents

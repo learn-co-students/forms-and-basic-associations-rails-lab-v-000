@@ -12,7 +12,7 @@
     <% end %>
   </datalist>
   <br>
-  <%= f.label :genre %>
+  <%= f.label :genre_name %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
   <%= f.label :note %><br>
