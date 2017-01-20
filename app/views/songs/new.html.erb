@@ -7,8 +7,8 @@
   <%= f.label :artist_name %>
   <%= f.text_field :artist_name, list: "artists_autocomplete" %>
   <datalist id="artists_autocomplete">
-    <%= Artist.all.each do |art| %>
-      <option value="<%= art.name %>">
+    <%= Artist.all.each do |a| %>
+      <option value="<%= a.name %>">
     <% end %>
   </datalist>
   <br>

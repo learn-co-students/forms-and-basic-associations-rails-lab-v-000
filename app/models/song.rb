@@ -16,7 +16,6 @@ class Song < ActiveRecord::Base
     binding.pry
   end
 
-
   def genre_name
     self.genre.name if self.genre
   end
