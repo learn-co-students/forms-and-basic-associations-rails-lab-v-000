@@ -5,6 +5,20 @@
   <%= f.text_field :title %>
   <br />
 
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br />
+
+  <%= f.collection_select :genre_name,
+    Genre.all, :name, :name, {}, {id: :song_genre_id} %>
+
+  <% (1..3).each do |x| %>
+    <label for="song_notes_<%= x %>">Song Notes #<%= x %></label>
+    <input id="song_notes_<%= x %>" 
+           type="text_field" 
+           name="song[note_contents][]" >
+  <% end %>
+
   <%= f.submit %>
 <% end %>
 
