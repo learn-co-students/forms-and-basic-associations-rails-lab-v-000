@@ -21,10 +21,21 @@ class SongsController < ApplicationController
   end
 
 
+  
+  # def genre_name
+  #   self.genre.to
+  # end
+
+  def genre_name=(name)
+    self.genre = Genre.find_or_create_by(name: name)
+  end
+
+
   def create
     @song = Song.create({
       artist_name: params[:song][:artist_name],
-      title: params[:song][:title]
+      title: params[:song][:title],
+      genre: params[:song][:genre]
       })
 
 
@@ -61,7 +72,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name)
+    params.require(:song).permit(:title, :artist_name, :genre, note_contents: => [])
   end
 end
 
