@@ -11,6 +11,10 @@ class SongsController < ApplicationController
     @song = Song.new
   end
 
+  def artist_name
+    self.artist.name
+  end
+
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
@@ -21,12 +25,8 @@ class SongsController < ApplicationController
     @song = Song.create({
       artist_name: params[:song][:artist_name],
       title: params[:song][:title]
-      
       })
 
-    #@song = Song.new(song_artist_name: params[:song_artist_name])
-        #content: params[:post][:content]
-      
 
     if @song.save
       redirect_to @song
