@@ -24,13 +24,15 @@ class Song < ActiveRecord::Base
 
 
   def note_contents
-    self.notes
+    self.notes.map(&:content)
   end
 
   def note_contents=(notes)
-    notes.each do |note|
-      note = Note.find(note)
-      self.notes << note
+    notes.each do |content|
+      if content.strip != ""
+        new_note = Note.create(content: content) 
+        self.notes << new_note
+      end
     end
   end
 
