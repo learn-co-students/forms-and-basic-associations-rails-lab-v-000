@@ -8,7 +8,28 @@ class Song < ActiveRecord::Base
   end 
 
   def artist_name
-  	self.artist.name
+  	self.artist.try(:name)
+  end
+
+  def genre_name=(name)
+  	self.genre = Genre.find_by(name: name)
+  end
+
+  def genre_name
+  	self.genre.try(:name)
+  end
+
+  def note_contents=(contents)
+  	contents.each do |content|
+  		if content != ""
+	  		note = Note.create(content: content) 
+	  		self.notes << note
+  		end 
+  	end 
+  end
+
+  def note_contents
+  	self.notes.map { |note| note.content }
   end
 end
 
