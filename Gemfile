@@ -43,5 +43,9 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  
+  gem "pry"
 end
 
+
+gem 'learn-co'
