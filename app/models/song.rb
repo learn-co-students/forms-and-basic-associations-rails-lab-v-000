@@ -15,7 +15,7 @@ class Song < ActiveRecord::Base
    end
   end
 
-  def note_contents=(array)P
+  def note_contents=(array)
     array.collect do |e|
      if e != ""
       self.notes.build(:content => e)
