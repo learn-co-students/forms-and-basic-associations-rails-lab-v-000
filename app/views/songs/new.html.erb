@@ -12,9 +12,11 @@
   <label>Select Genre</label>
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
+  <input name="song[note_contents][]" id="song_notes_1">
+  <input name="song[note_contents][]" id="song_notes_2">
+
   <br />
+
 
   <%= f.submit %>
 <% end %>
-
-
