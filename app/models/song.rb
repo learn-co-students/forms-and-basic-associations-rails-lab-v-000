@@ -11,13 +11,5 @@ class Song < ActiveRecord::Base
     self.artist
   end
 
-  def song_genre_id=(id)
-    self.genre = Genre.find_or_create_by(id: id)
-  end
-
-  def song_genre_id
-    self.genre
-  end
-
 end
 
