@@ -1,3 +1,6 @@
 <h1>Songs#show</h1>
 
-Title: <%= @song.title %>
+Title: <%= @song.title %><br>
+<%= link_to @song.artist_name, artist_path(@song.artist) if @song.artist_name %><br>
+<%= @song.genre_name %>
+<p>Notes:</p>
