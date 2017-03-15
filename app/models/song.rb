@@ -19,10 +19,15 @@ class Song < ActiveRecord::Base
     genre.name
   end
 
-  def note_contents=(notes)
+  def note_contents=(content)
+    note = Note.create!(content: content)
+    self.notes << note 
   end
 
   def note_contents
+    notes.map do |n|
+      n.content
+    end
   end
 end
 
