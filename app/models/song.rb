@@ -7,8 +7,11 @@ class Song < ActiveRecord::Base
       self.artist = Artist.find_or_create_by(name: name)
   end
 
+
   def artist_name
+    if artist
      artist.name
+   end
   end
 
   def genre_name=(name)
@@ -16,13 +19,16 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
+    if genre
     genre.name
+   end
   end
 
   def note_contents=(content)
+    content.delete("")
     content.each do |c|
        note = Note.create!(content: c)
-       self.notes << note 
+       self.notes << note
      end
   end
 
@@ -32,4 +38,3 @@ class Song < ActiveRecord::Base
     end
   end
 end
-
