@@ -4,8 +4,10 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
-
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br />
+  <%= f.select :genre_id, Genre.all.collect { |g| [ g.name, g.id ] }, include_blank: true %>
+  <br />
   <%= f.submit %>
 <% end %>
-
-
