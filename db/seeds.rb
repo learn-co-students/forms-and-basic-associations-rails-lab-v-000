@@ -159,4 +159,25 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
+song1 = Song.create(title: "My Song")
+song2 = Song.create(title: "My Michelle")
+song3 = Song.create(title: "I'm Only Sleeping")
+song4 = Song.create(title: "Knowing She Would")
+
+artist1 = Artist.create(name: "The Beatles")
+artist2 = Artist.create(name: "The Stones")
+
+note1 = Note.create(content: "Oh, that song My Song, is such a good song")
+note2 = Note.create(content: "My Song Rocks")
+note3 = Note.create(content: "My Song is a song!")
+
+note4 = Note.create(content: "My Michelle is about a girl named Michelle")
+note5 = Note.create(content: "My Michelle is a song with words and music")
+note6 = Note.create(content: "What's better than My Michelle? Two Michelles")
+
+note7 = Note.create(content: "I'm only sleeping is the best")
+note8 = Note.create(content: "I'm only sleeping is tired song")
+
+note9 = Note.create(content: "Knowing she would so good")
+
 
