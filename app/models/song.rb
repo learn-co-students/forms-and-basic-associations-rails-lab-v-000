@@ -20,4 +20,14 @@ class Song < ActiveRecord::Base
     genre = Genre.find_or_create_by(name: name)
     self.genre = genre
   end
+
+  def note_contents
+    self.notes.collect(:content)
+  end
+
+  def note_contents=(notes)
+    notes.each do |note|
+      self.notes.build(content: note)
+    end
+  end
 end
