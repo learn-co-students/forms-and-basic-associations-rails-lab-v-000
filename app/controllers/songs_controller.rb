@@ -19,7 +19,8 @@ class SongsController < ApplicationController
     # else
     #   render :new
     # end
-    Song.create(song_params)
+    @song = Song.create(song_params)
+    redirect_to @song
   end
 
   def edit

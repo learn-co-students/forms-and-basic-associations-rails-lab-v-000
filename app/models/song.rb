@@ -12,22 +12,24 @@ class Song < ActiveRecord::Base
     self.artist = artist
   end
 
-  def genre_name
-    self.try(:genre).try(:name)
-  end
-
-  def genre_name=(name)
-    genre = Genre.find_or_create_by(name: name)
-    self.genre = genre
-  end
+  # def genre_name
+  #   self.try(:genre).try(:name)
+  # end
+  #
+  # def genre_name=(name)
+  #   genre = Genre.find_or_create_by(name: name)
+  #   self.genre = genre
+  # end
 
   def note_contents
-    self.notes.collect(:content)
+    self.notes.collect(&:content)
   end
 
   def note_contents=(notes)
     notes.each do |note|
-      self.notes.build(content: note)
+      if note.strip != ''
+        self.notes.build(content: note)
+      end
     end
   end
 end
