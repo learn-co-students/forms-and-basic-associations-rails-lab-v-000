@@ -12,19 +12,11 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(contents)
-  	contents.each do |content|
-  		self.notes << Note.create(content: content)
-  	end
+  	contents.each {|content| (self.notes << Note.create(content: content)) if !content.empty?}
   end
 
   def note_contents
-  	contents = []
-  	notes.each do |note|
-  		if !(note.content.empty?)
-  			contents << note.content
-  		end
-  	end
-  	contents
+  	self.notes.collect {|note| note.content}
   end
 
   def genre_name=(name)
