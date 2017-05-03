@@ -8,21 +8,24 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-  	self.genre.name
+  	self.try(:genre).try(:name)
   end
 
-   def artist_name=(name)
+
+
+  def artist_name
+  	self.try(:artist).try(:name)
+  end
+
+  def artist_name=(name)
   	self.artist = Artist.find_or_create_by(name: name)
   end
 
-  def artist_name
-  	self.artist.name
-  end
-
   def note_contents=(arr)
-  	arr.collect do |content|
+  	note_arr = arr.collect do |content|
   		self.notes << Note.create!(content: content)
   	end
+  	binding.pry
   end
 
   def note_contents
