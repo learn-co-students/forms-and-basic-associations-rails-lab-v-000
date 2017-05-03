@@ -25,7 +25,6 @@ class Song < ActiveRecord::Base
   	note_arr = arr.collect do |content|
   		self.notes << Note.create!(content: content)
   	end
-  	binding.pry
   end
 
   def note_contents
