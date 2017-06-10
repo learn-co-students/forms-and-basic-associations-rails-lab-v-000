@@ -1,11 +1,17 @@
 <%= form_for @song do |f| %>
-  <%= f.text_field :title %>
-  <%= f.text_field :artist_name %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
-  
-  <input name='song[note_contents][]' id='song_notes_1'>
-  <input name='song[note_contents][]' id='song_notes_2'>
-  <input name='song[note_contents][]' id='song_notes_3'>
+  <label>Song Title:</label>
+  <%= f.text_field :title %><br>
+  <label>Artist Name:</label>
+  <%= f.text_field :artist_name %><br>
+  <label>Genre:</label>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+
+  <label>Note 1:</label>
+  <input name='song[note_contents][]' id='song_notes_1'><br>
+  <label>Note 2:</label>
+  <input name='song[note_contents][]' id='song_notes_2'><br>
+  <label>Note 3:</label>
+  <input name='song[note_contents][]' id='song_notes_3'><br>
 
   <%= f.submit %>
 <% end %>
