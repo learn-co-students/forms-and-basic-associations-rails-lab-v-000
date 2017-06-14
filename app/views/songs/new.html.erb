@@ -2,10 +2,23 @@
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br />
+  <%= f.text_field :title %><br/>
+  <%= f.label :artist_name%>
+  <%= f.text_field :artist_name%><br>
+  <%= f.label :genre_id%>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+  Note: <input name="song[note_contents][]" id="song_notes_1"><br>
+  Note: <input name="song[note_contents][]" id="song_notes_2"><br>
+  Note: <input name="song[note_contents][]" id="song_notes_3"><br>
 
   <%= f.submit %>
 <% end %>
 
 
+<!-- 
+<label for="artist_name" >Artist Name:</label>
+  <input id="artist_name" type="text" name="song[artist_name]"> -->
+
+	<!--  Make bunch text fields for notes
+	 save the notes to an array
+	 create song associated with the notes that were created. -->
