@@ -31,6 +31,8 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-     self.artist.name
+     if self.try(:artist)
+       self.artist.name
+     end
   end
 end
