@@ -20,16 +20,15 @@ class Song < ActiveRecord::Base
     self.try(:artist).try(:name) 
   end
 
-  #  note_contents
-  #    returns the content of all notes as an array (FAILED - 6)
-  #  note_contents=
-  #    sets notes for a song (FAILED - 7)
-  #    adds to existing notes (FAILED - 8)
-  #    ignores blank notes (FAILED - 9)
-
-  def note_contents=(content)
+  def note_contents=(contents)
+    # equivalent to:
+    # contents.reject(|content| content.blank?).each{|content| self.notes.build(:content => content)}
+    contents.reject(&:blank?).each{|content| self.notes.build(:content => content)}
   end
   
   def note_contents
+    # equivalent to:
+    # self.notes.collect(|note| note.content)
+    self.notes.collect(&:content)
   end
 end
