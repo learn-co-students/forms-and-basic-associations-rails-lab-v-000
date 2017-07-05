@@ -1,3 +1,9 @@
 <h1>Songs#show</h1>
 
-Title: <%= @song.title %>
+<div>Title: <%= @song.title %></div>
+<div>Artist: <%= @song.artist_name %></div>
+
+<% if !@song.note_contents.blank? %>
+  <div>New Notes: </div>
+  <div><%= @song.note_contents %></div>
+<% end %>
