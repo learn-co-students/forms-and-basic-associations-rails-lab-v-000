@@ -159,4 +159,6 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
-
+artists = Hash[[
+  "Tupac"
+].map{ |artist| [artist, Artist.find_or_create_by(name: artist)]}]
