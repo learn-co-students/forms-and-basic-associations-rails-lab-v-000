@@ -7,16 +7,28 @@ class Song < ActiveRecord::Base
     self.artist= Artist.find_or_create_by(name: artist_name)
   end
 
-  def artist_name #reader
-    self.artist.name
+  def artist_name
+    self.artist.name if self.artist
   end
 
   def genre_name=(genre_name)
     self.genre= Genre.find_or_create_by(name: genre_name)
   end
 
-  def genre_name #reader
-    self.genre.name
+  def genre_name
+    self.genre.name if self.genre
+  end
+
+  def note_contents=(note_contents)
+    note_contents.each do |note|
+     if note != ""
+     self.notes << Note.find_or_create_by(content: note)
+    end
+  end
+end
+
+  def note_contents
+    self.notes.map { |note| note.content  }
   end
 
 end
