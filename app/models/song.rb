@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.try(:artist).try(:name)
+    self.artist.name unless self.artist == nil
   end
 
   def genre_name=(name)
