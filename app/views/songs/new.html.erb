@@ -4,8 +4,15 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br>
+  <%= f.collection_select :genre, Genre.all, :id, :name %>
+  <br>
 
+  <p>Notes:</p>
+  <%= f.text_field :notes, multiple: true %><br>
+  <%= f.text_field :notes, multiple: true %><br>
+  <%= f.text_field :notes, multiple: true %><br>
   <%= f.submit %>
 <% end %>
-
-
