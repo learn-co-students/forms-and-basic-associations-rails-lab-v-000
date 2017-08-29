@@ -12,5 +12,19 @@ class Song < ActiveRecord::Base
   def artist_name
     self.try(:artist).try(:name)
   end
+
+  # def genre_id
+  #   self.try(:genre).try(:id)
+  # end
+
+  def genre_id=(id)
+    genre = Genre.find_or_create_by(id: id)
+    self.genre = genre
+  end
+
+  def note_contents
+byebug
+    self.notes
+  end
 end
 
