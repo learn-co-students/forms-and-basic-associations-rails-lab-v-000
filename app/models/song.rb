@@ -15,4 +15,16 @@ class Song < ActiveRecord::Base
     self.artist = Artist.find_or_create_by(name: name)
   end
 
+  def genre_id
+    if self.genre
+      self.genre.name
+    else
+      nil
+    end
+  end
+
+  def genre_id=(id)
+    self.genre = Genre.find_or_create_by(id: id)
+  end
+
 end
