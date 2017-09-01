@@ -14,12 +14,11 @@
   <br /><br /> 
 
   <%= f.label 'notes_1', 'Note 1:' %>
-  <%= f.text_field :notes, {id: 'song_notes_1', value: "", name: 'note_contents[]'} %>
-
+  <input type="text" name="song[note_contents][]" id="song_notes_1">
   <br /><br />
 
   <%= f.label 'notes_2', 'Note 2:' %>
-  <%= f.text_field :notes, {id: 'song_notes_2', value: "", name: 'note_contents[]'} %>
+  <input type="text" name="song[note_contents][]" id="song_notes_2">
   <br /><br />
 
   <%= f.submit %>

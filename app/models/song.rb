@@ -20,7 +20,11 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-  	notes.each{|note| self.notes << Note.create(content: note) unless note == ''}
+  	notes.each do |note| 
+      unless note == ''
+        self.notes << Note.create(content: note) 
+      end
+    end
   end
 
   def note_contents
