@@ -6,7 +6,7 @@ class Song < ActiveRecord::Base
   def song_artist_name
     self.try(:artist).try(:name)
   end
-# Doesn't work without this block of code
+# .try is look for an object, and return nil if it doesn't detect it instead of error
 
   def song_artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
