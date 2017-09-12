@@ -23,7 +23,7 @@ class Song < ActiveRecord::Base
   def note_contents=(notes)
     notes.map do |note|
       if note != ""
-        self.build(notes: note)
+        self.notes.build(content: note)
       end
     end
   end
