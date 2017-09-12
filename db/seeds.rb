@@ -8,6 +8,15 @@
 
 # ID3 tag music genres are surprisingly specific.
 
+al = Artist.create!(name: "Weird Al")
+dog = Artist.create!(name: "Snoop Dog")
+clapton = Artist.create!(name: "Eric Clapton")
+
+Song.create!(title: "Gangsta's Paradise", artist_id:dog.id, genre_id:22)
+Song.create!(title: "Amish Paradise", artist_id:al.id, genre_id:11)
+Song.create!(title: "Lay Down Sally", artist_id:clapton.id, genre_id:2)
+Song.create!(title: "Layla", artist_id:clapton.id, genre_id: 33)
+
 genres = Hash[[
   "Blues",
   "Classic Rock",
