@@ -19,6 +19,16 @@ class Song < ActiveRecord::Base
     self.try(:genre).try(:name)
   end
 
+	def new_genre=(genre)
+		@new_genre = Genre.find_or_create_by(name: genre)
+		self.genre_id = @new_genre.id if @new_genre.valid?
+		self.save
+	end
+
+	def new_genre
+		@new_genre
+	end
+
   def note_contents=(contents)
     contents.each do |content|
       note = Note.find_or_create_by(content: content)
