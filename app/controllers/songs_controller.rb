@@ -1,5 +1,10 @@
 class SongsController < ApplicationController
 
+	def genre_index
+		@genres = Genre.all.order(:name)
+		render 'songs/genres'
+	end
+
   def index
     @songs = Song.all
   end
@@ -44,6 +49,6 @@ class SongsController < ApplicationController
 
   private
 	 def song_params
-    params.require(:song).permit(:title, :artist_name, :genre_id, :new_genre, note_contents:[])
+    params.require(:song).permit(:title, :genre_id, :artist_name, :new_genre, :genre_name, note_contents:[])
   end
 end

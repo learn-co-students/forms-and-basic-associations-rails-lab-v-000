@@ -10,8 +10,7 @@
 		<%= link_to "Songs", songs_path %> |
 		<%= link_to "Genres", genres_path %> ||| 
 		<%= link_to "NewSong", new_song_path %> |
-		<%= link_to "NewArtist", new_artist_path %> |
-		<%= link_to "NewGenre", new_genre_path %>
+		<%= link_to "NewArtist", new_artist_path %>
 		
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>

@@ -20,8 +20,9 @@ class Song < ActiveRecord::Base
   end
 
 	def new_genre=(genre)
-		@new_genre = Genre.find_or_create_by(name: genre)
-		self.genre_id = @new_genre.id if @new_genre.valid?
+		new_genre = Genre.find_or_create_by(name: genre)
+		new_genre.save
+		self.genre = new_genre
 		self.save
 	end
 
