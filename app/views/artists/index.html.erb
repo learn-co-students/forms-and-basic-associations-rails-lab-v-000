@@ -1,2 +1,6 @@
-<h1>Artists#index</h1>
-<p>Find me in app/views/artists/index.html.erb</p>
+<h1>Artists</h1>
+<% @artists.each do |artist| %>
+	<p>
+		<%= artist.name %>
+	</p>	
+<% end %>
