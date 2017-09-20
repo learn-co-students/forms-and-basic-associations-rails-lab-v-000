@@ -9,12 +9,12 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    # self.try(:genre).try(:name)
     self.genre && self.genre.name
   end
 
   def artist_name
     self.try(:artist).try(:name)
+    self.artist && self.artist.name
   end
 
   def artist_name=(name)
