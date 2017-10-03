@@ -1,2 +1,8 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1><%= @artist.name %></h1>
+
+<h3><%= pluralize(@artist.songs.count, 'Song') %></h3>
+<ul>
+  <% @artist.songs.each do |p| %>
+    <li><%= link_to p.title, song_path(p) %></li>
+  <% end %>
+</ul>

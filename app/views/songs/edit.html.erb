@@ -5,7 +5,11 @@
   <%= f.text_field :title %>
   <br />
 
+  <% @song.notes.each do |note| %>
+    <% f.fields_for note, index: note_id do |cf| %>
+      <% cf.text_field :content %>
+    <% end %>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
-
-
