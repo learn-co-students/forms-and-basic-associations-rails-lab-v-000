@@ -18,5 +18,10 @@
   </datalist>
   <textarea name="song[title]"></textarea>
 <% end %>
+<%= form_for @song do |f| %>
+  <input name="song[note_ids][]">
+  <input name="song[note_ids][]">
+  <input name="song[note_ids][]">
+<% end %>
   <%= f.submit %>
 <% end %>

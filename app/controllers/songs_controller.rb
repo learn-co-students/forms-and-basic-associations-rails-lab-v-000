@@ -8,7 +8,8 @@ class SongsController < ApplicationController
   end
 
   def new
-    @song = Song.new
+    @song = Song.new(song_params)
+    @song.save
   end
 
   def create
@@ -47,6 +48,8 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:genre_name, :title, :artist_name)
+    params.require(:song).permit(:title, :artist_name, :genre_name, note_ids: [])
+    #params.require(:category).permit(:name, post_ids: [])
+
   end
 end
