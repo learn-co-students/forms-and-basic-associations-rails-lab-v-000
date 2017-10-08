@@ -18,15 +18,17 @@ class Song < ActiveRecord::Base
    #binding.pry
   end
   def note_contents
-    self.notes.map do |note|
+    self.notes.map do |note| #map to return a new collection of notes content
       note.content
     end
   end
 
-  def note_contents=(notes)
+  def note_contents=(notes)#notes argument value is from
+    #new.html.erb's Song notes_content
     #binding.pry
    notes.each do |content|
-      self.notes.build(content: content) if content != "" #build provides associations and push into collection
+      self.notes.build(content: content) if content != ""
+      #build provides associations and push into collection
    end#binding.pry
   end
   def note_ids
