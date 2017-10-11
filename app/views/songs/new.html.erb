@@ -4,7 +4,16 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
-
+  <label>Artist:</label>
+  <%= f.text_field :artist_name %>
+  <br>
+  <label>Genre:</label>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  <br>
+  <label>Notes:</label>
+  <input type="text" name="song[note_contents][]" id="song_notes_1"><br>
+  <input type="text" name="song[note_contents][]" id="song_notes_2"><br>
+  <input type="text" name="song[note_contents][]" id="song_notes_3"><br>
   <%= f.submit %>
 <% end %>
 
