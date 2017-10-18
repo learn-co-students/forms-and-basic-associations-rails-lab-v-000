@@ -14,14 +14,13 @@
     </datalist>
   <br />
 
-  <%= f.label :genre %>
-  <%= f.collection_select :genre, Genre.all, :id, :name %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <br />
 
   <%= f.label :note %>
-  <input id="song_notes_1" name="song[note_ids][]">
-  <input id="song_notes_2" name="song[note_ids][]">
-  <input id="song_notes_3" name="song[note_ids][]">
+  <input id="song_notes_1" name="song[note_contents][]">
+  <input id="song_notes_2" name="song[note_contents][]">
+  <input id="song_notes_3" name="song[note_contents][]">
   <br />
 
   <%= f.submit %>
