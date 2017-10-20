@@ -159,4 +159,12 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
+strokes = Artist.create(name: "The Strokes")
+strokes.songs.create!(title: "Last Nite", genre: Genre.find_by(name: "Indie"))
+strokes.songs.create!(title: "Reptilia", genre: Genre.find_by(name: "Indie"))
+strokes.songs.create!(title: "12:51", genre: Genre.find_by(name: "Indie"))
 
+pond = Artist.create(name: "Pond")
+pond.songs.create!(title: "Colder than ice", genre: Genre.find_by(name: "Acid"))
+pond.songs.create!(title: "30000 megatones", genre: Genre.find_by(name: "Acid"))
+pond.songs.create!(title: "Zond", genre: Genre.find_by(name: "Acid"))
