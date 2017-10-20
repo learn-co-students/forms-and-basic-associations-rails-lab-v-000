@@ -21,14 +21,15 @@ class Song < ActiveRecord::Base
     self.genre.name if self.genre
   end
 
-  def note_contents=(note_contents)
+  def note_contents
+    self.notes.collect { |note| note.content }
   end
 
-  def note_contents
-    binding.pry
-    self.notes.collect do |note|
-      note.content
+  def note_contents=(note_contents)
+    note_contents.each do |content|
+      self.notes.build(content: content) if !content.empty?
     end
   end
+
 
 end
