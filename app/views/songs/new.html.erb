@@ -1,3 +1,5 @@
+<% require 'pry' %>
+
 <h1>Create a Song</h1>
 
 <%= form_for @song  do |f| %>
@@ -5,7 +7,29 @@
   <%= f.text_field :title %>
   <br />
 
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name, list: "artists_autocomplete" %>
+  <datalist id="artists_autocomplete">
+    <% Artist.all.each do |artist| %>
+    <% binding.pry %>
+      <option value="<%= artist.name  %>">
+    <% end %>
+  </datalist>
+  <br />
+
+  <%= f.label :genre_id %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name  %>
+  <br>
+  <!-- :genre_id is the method being called on the model  -->
+  <!-- this will create params[:song][:genre_id] -->
+  <!-- Genre.all indicates the collection to be pulled for the select element. (e.g. <#hip hop><#pop>) -->
+  <!-- Then it puts the :id of each selected genre into the values attribute of options elements on the html page (e.g. <options value="1"></options>)-->
+  <!-- It also determines what the user sees through :name (the "text_method", like so: <options value="1">Hip Hop</options> ) -->
+
+  Notes: <br>
+  <input type="text" id="song_notes_1" name="song[note_contents][]"><br>
+  <input type="text" id="song_notes_2" name="song[note_contents][]"><br>
+  <input type="text" id="song_notes_3" name="song[note_contents][]"><br>
+
   <%= f.submit %>
 <% end %>
-
-
