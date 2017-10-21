@@ -11,8 +11,8 @@
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <br />
   <label>Song Note 1:</label>
-  <input type="text", id="song_notes_1", name="song[note_contents][]" />
+  <%= text_field_tag :note, nil, {:id=> "song_notes_1", :name=> "song[note_contents][]"} %><br />
   <label>Song Note 2:</label>
-  <input type="text", id="song_notes_2", name="song[note_contents][]" /><br />
+  <%= text_field_tag :note, nil, {:id=> "song_notes_2", :name=> "song[note_contents][]"} %><br />
   <%= f.submit %>
 <% end %>
