@@ -14,7 +14,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-  #  binding.pry
+    #binding.pry
     notes.each do |n|
       if n != ""
       self.notes.build(content: n, song_id: self.id)
