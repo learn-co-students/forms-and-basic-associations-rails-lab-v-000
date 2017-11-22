@@ -1,11 +1,46 @@
 <h1>Create a Song</h1>
 
-<%= form_for @song  do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br />
+<%= form_for(@song) do |f| %>
 
-  <%= f.submit %>
+  <% if @song.errors.any? %>
+    <div class="errors_explanation">
+      <h2>There were some errors: </h2>
+      <ul>
+        <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div><!-- end errors_explanation -->
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div> <!-- end field <--> <br>
+
+  <div class="field">
+    <%= f.label :artist_name %>
+    <%= f.text_field :artist_name, list: "artist_names" %>
+      <datalist id="artist_names">
+        <%= Artist.all.each do |artist| %>
+          <option value="<%= artist.name %>">
+      <% end %>
+  </div> <!-- end field --><br>
+
+  <div class="field">
+    <%= f.label :genre_name %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  </div> <!-- end field --><br>
+
+  <div class="field">
+    <input name='song[note_contents][]' id='song_notes_1' placeholder="Input note #1"> <br></br>
+    <input name='song[note_contents][]' id='song_notes_2' placeholder="Input note #2"> <br></br>
+    <input name='song[note_contents][]' id='song_notes_3' placeholder="Input note #3"> <br></br>
+  </div> <!-- end field --><br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div> <!-- end actions -->
+
+
 <% end %>
-
-
