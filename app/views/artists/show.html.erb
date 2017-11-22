@@ -1,2 +1,9 @@
 <h1>Artists#show</h1>
 <p>Find me in app/views/artists/show.html.erb</p>
+<%= @artist.name%><br>
+<% @artist.songs.each do |s| %>
+
+<p>
+  <%= link_to s.name, song_path(s) %>
+</p>
+<%end%>
