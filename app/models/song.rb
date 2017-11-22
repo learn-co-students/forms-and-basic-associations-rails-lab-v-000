@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
-  def genre_name=(name)
+  def genre_name=(name) #belongs_to association writer
     if genre != ""
       self.genre = Genre.find_or_create_by(name: name)
     end
@@ -25,7 +25,7 @@ class Song < ActiveRecord::Base
     self.artist.name unless self.artist == nil
   end
 
-  def note_contents=(note)
+  def note_contents=(note) #has_many association writer
     note.each do |content|
       if content != ""
         n = Note.find_or_create_by(content: content)
