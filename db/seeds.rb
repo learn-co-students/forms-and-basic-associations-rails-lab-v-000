@@ -9,7 +9,7 @@
 # ID3 tag music genres are surprisingly specific.
 
 genres = Hash[[
-  "Blues",
+  "Alternative",
   "Classic Rock",
   "Country",
   "Dance",
@@ -158,5 +158,3 @@ genres = Hash[[
   "JPop",
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
-
-
