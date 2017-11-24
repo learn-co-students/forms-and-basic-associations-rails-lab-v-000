@@ -9,7 +9,7 @@
 # ID3 tag music genres are surprisingly specific.
 
 genres = Hash[[
-  "Alternative",
+  "Blues",
   "Classic Rock",
   "Country",
   "Dance",
