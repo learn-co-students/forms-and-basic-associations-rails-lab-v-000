@@ -14,6 +14,6 @@ attr_reader :artist_name, :genre_name, :note_contents
   end
 
   def note_contents=(contents)
-
+    self.note_contents = Note.find_or_create_by(contents)
   end
 end
