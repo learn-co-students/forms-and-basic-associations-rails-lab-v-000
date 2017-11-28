@@ -1,11 +1,28 @@
 <h1>Create a Song</h1>
-
+<!--A text input box that sets the song's title.-->
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+<% end %>
 
-  <%= f.submit %>
+<!--A text input box for the artist.-->
+<%= form_for @artist  do |a| %>
+  <%= a.label :name %>
+  <%= a.text_field :name %>
+  <br />
+<% end %>
+
+<!--A selection box for genre. Users should be able to pick amongst existing genres only.-->
+<%= form_for @genre do |g| %>
+ <%= g.collection_select :genre, Genre.all, :id, :name %>
+ <%= g.text_field :content %>
 <% end %>
 
 
+<!--Several text input boxes to add notes to the song.
+These should have the IDs song_notes_1, song_notes_2, and so on for the specs to pass.
+(You might need to search around for how to pass an array using strong_params!)-->
+
+
+  <%= f.submit %>
