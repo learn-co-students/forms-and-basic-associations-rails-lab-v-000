@@ -2,10 +2,12 @@
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, id: "song_title" %>
+  <%= f.label :artist %>
+  <%= f.text_field :artist, id: "song_artist_name" %><br />
+  <%= f.collection_check_boxes :genre, Genre.all, :id, :name %>
+
   <br />
 
-  <%= f.submit %>
+  <%= f.submit :commit %>
 <% end %>
-
-
