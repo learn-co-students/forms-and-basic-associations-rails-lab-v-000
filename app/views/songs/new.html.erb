@@ -9,7 +9,10 @@
 
   <%= f.collection_check_boxes :genre, Genre.all, :id, :name %><br /><br />
 
-  
+  <%= f.label :content %>
+  <%= f.text_field :note_contents %><br />
+  <%= f.label :content %>
+  <%= f.text_field :note_contents%>
   <br />
 
   <%= f.submit :commit %>

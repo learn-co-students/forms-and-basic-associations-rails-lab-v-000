@@ -20,19 +20,18 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(note)
-  
     note = note.reject{ |n| n.empty? }
      self.notes << note.collect do |n|
        Note.create(content: n)
     end
+    self.save
   end
 
   def note_contents
-      array = self.notes.all.collect do |c|
+     self.notes.all.collect do |c|
         c.content
       end
-
-      array
+    
   end
 
 end
