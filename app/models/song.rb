@@ -28,7 +28,7 @@ class Song < ActiveRecord::Base
   end
   
   def note_contents
-    self.notes.collect { |note| note.content}
+    self.notes.map(&:content)
   end
 end
 
