@@ -7,10 +7,6 @@ class Song < ActiveRecord::Base
      self.artist = Artist.find_or_create_by(name: name)
   end
   
-  def genre_name=(name)
-     self.genre = Genre.find_by(name: name)
-  end
-  
   def artist_name
      if self.artist
       self.artist.name
@@ -19,8 +15,24 @@ class Song < ActiveRecord::Base
     end
   end
   
+  def genre_name=(name)
+     self.genre = Genre.find_by(name: name)
+  end
+  
   def genre_name
      self.genre.name
+  end
+  
+  def genre_id=(id)
+     self.genre = Genre.find(id)
+  end
+  
+  def genre_id
+    if self.genre
+      self.genre.id
+    else
+      nil
+    end
   end
   
   def note_contents=(noteStringArray)
