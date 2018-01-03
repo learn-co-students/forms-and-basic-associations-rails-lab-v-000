@@ -16,9 +16,9 @@
 These should have the IDs song_notes_1, song_notes_2, and so on for the specs to pass.
 (You might need to search around for how to pass an array using strong_params!)-->
   <%= s.label :song_notes %>
-  <input name="song[note_contents][]" type="text" id="song_notes_1"/>
-  <input name="song[note_contents][]" type="text" id="song_notes_2"/>
-  <input name="song[note_contents][]" type="text" id="song_notes_3"/>
+  <input name="song[note_contents][]" id="song_notes_1"/>
+  <input name="song[note_contents][]" id="song_notes_2"/>
+  <input name="song[note_contents][]" id="song_notes_3"/>
   <br /><br />
   <%= s.submit %>
 <% end %>

@@ -48,6 +48,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:note_content, :artist_name, :genre_name,:title, :artist_id, :genre_id)
+    #:note_contents ecxplicitly setup as an array use of build is used saves to an array!
+    params.require(:song).permit(:title, :artist_name, :genre_id, :note_contents => [])
   end
 end

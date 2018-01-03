@@ -24,11 +24,10 @@ class Song < ActiveRecord::Base
    self.artist.name if self.artist
   end
 
-  def note_contents=(contents)
-    contents.each do |one_element_of_content|
-      if !one_element_of_content.empty?
-       self.notes.build(content: one_element_of_content)
-      end
+  def note_contents=(notes)
+    notes.each do |note|
+      
+      self.notes.build(content: note) unless note.empty?
     end
   end
 
