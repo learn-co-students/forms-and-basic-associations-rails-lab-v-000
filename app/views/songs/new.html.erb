@@ -4,18 +4,14 @@
   <%= s.label :genre_id %>
   <%= s.text_field :genre_id %>
   <%= s.text_field :title %>
+  <br />
   <!--A text input box for the artist.-->
   <%= s.label :artist_name %>
   <%= s.text_field :artist_name %>
   <br />
-<% end %>
-
-
-
-<!--A selection box for genre. Users should be able to pick amongst existing genres only.-->
-<%= form_for @genre do |g| %>
- <%= g.collection_select :genre, Genre.all, :id, :name %>
- <%= g.text_field :content %>
+  <!--A selection box for genre. Users should be able to pick amongst existing genres only.-->
+  <%= s.collection_select :genre, Genre.all, :id, :name %>
+  <%= s.text_field :content %>
 <% end %>
 
 
