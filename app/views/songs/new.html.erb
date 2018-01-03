@@ -1,8 +1,6 @@
 <h1>Create a Song</h1>
 <!--A text input box that sets the song's title.-->
 <%= form_for @song  do |s| %>
-  <%= s.label :genre_id %>
-  <%= s.text_field :genre_id %>
   <%= s.text_field :title %>
   <br />
   <!--A text input box for the artist.-->
@@ -10,22 +8,10 @@
   <%= s.text_field :artist_name %>
   <br />
   <!--A selection box for genre. Users should be able to pick amongst existing genres only.-->
-  <%= s.collection_select :genre, Genre.all, :id, :name %>
-  <%= s.text_field :content %>
+  <%= s.collection_select :genre_id, Genre.all, :id, :name %>
+<input name="song[note_contents][]" type="text" id="song_notes_1"/>
+<input name="song[note_contents][]" type="text" id="song_notes_2"/>
+<input name="song[note_contents][]" type="text" id="song_notes_3"/>
+
+  <%= s.submit %>
 <% end %>
-
-
-<!--Several text input boxes to add notes to the song.
-These should have the IDs song_notes_1, song_notes_2, and so on for the specs to pass.
-(You might need to search around for how to pass an array using strong_params!)-->
-<%= form_for @song do |f| %>
- <%= f.text_field :song_notes, list: "songs_autocomplete" %>
- <datalist id="songs_autocomplete">
-   <% Note.all.each do |category| %>
-     <option value="<%= note.content %>">
-   <% end %>
- </datalist>
- <textarea name="post[content]"></textarea>
-<% end %>
-
-  <%= f.submit %>

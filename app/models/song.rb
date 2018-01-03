@@ -1,5 +1,9 @@
 class Song < ActiveRecord::Base
-  validates :note_contents, presence: true
+
+  belongs_to :artist
+  belongs_to :genre
+  has_many :notes
+
   #Setter Genre Attribute
   def genre_name=(name)
    self.genre = Genre.find_or_create_by(name: name)
@@ -17,7 +21,7 @@ class Song < ActiveRecord::Base
 
   #Reader Song Attribute
   def artist_name
-   self.artist.name
+   self.artist.name if self.artist
   end
 
   def note_contents=(contents)
@@ -34,7 +38,4 @@ class Song < ActiveRecord::Base
     end
   end
 
-  belongs_to :artist
-  belongs_to :genre
-  has_many :notes
 end
