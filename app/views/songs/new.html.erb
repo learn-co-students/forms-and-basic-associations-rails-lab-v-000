@@ -13,8 +13,9 @@
   <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
   <br>
 
-  <%= f.label :notes %>
-  <%= f.text_field :notes %>
+  <input name="song[notes][]">
+  <br>
+  <input name="song[notes][]">
   <br>
 
   <%= f.submit %>
