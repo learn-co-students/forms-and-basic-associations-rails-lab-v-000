@@ -159,4 +159,7 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
-
+song = Song.new
+song.genre_name = 'Rock'
+song.artist_name = 'Rock Hudson'
+notes = ['Great song', 'much bass', 'wow']
