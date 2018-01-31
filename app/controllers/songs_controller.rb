@@ -10,10 +10,10 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
-    @song.notes.build
   end
 
   def create
+    # raise params.inspect
     @song = Song.new(song_params)
     if @song.save
       redirect_to @song
@@ -52,10 +52,7 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, :genre_id)
+    params.require(:song).permit(:title, :artist_name, :genre_id, notes_attributes: [:content])
   end
 
-  def note_params
-    params.require(:song).permit(notes: [])
-  end
 end

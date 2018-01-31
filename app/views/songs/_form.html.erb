@@ -15,6 +15,15 @@
 </p>
 
 <p>
+  <%= f.fields_for :notes, @song.notes.build do |i| %>
+    <label for="song_notes_1" class="notes_label">Note 1: <%= i.text_field :content, :id => "song_notes_1" %></label>
+  <% end %>
+  <%= f.fields_for :notes, @song.notes.build do |i| %>
+    <label for="song_notes_2" class="notes_label">Note 2: <%= i.text_field :content, :id => "song_notes_2" %></label>
+  <% end %>
+</p>
+
+<p>
   <%= f.submit %>
 </p>
 <% end %>
