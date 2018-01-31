@@ -3,15 +3,30 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
+  def genre_name=(genre)
+    self.genre = Genre.find_or_create_by(name: genre)
+  end
+
+  def genre_name
+    self.genre && self.genre.name
+  end
+
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
   end
 
-  #f.text_field :artist_name was calling the artist_name method on your fresh Song instance, 
-  #in order to see if there was a value to set in the form field's value attribute
-  #that method was raising an error because you can't call name on nil
   def artist_name 
     self.artist && self.artist.name
+  end
+
+  def note_contents=(notes)
+    notes.select(&:present?).each do |content|
+      self.notes.build(content: content)
+    end
+  end
+
+  def note_contents
+    self.notes.map(&:content)
   end
 end
 
