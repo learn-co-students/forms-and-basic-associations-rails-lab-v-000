@@ -5,6 +5,19 @@
   <%= f.text_field :title %>
   <br />
 
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br />
+ 
+ <input id="song_notes_1" name="song[note_contents][]">
+ <input id="song_notes_2" name="song[note_contents][]"> 
+ <input id="song_notes_3" name="song[note_contents][]">
+
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+
+<!-- Selection boxes for existing genres -->
+<!-- Several boxes to add notes to song. ids song_notes_1, song_notes_2, etc. -->
+
   <%= f.submit %>
 <% end %>
 
