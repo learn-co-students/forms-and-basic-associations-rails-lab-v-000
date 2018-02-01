@@ -1,2 +1,4 @@
-<h1>Artists#index</h1>
-<p>Find me in app/views/artists/index.html.erb</p>
+<% @artists.each do |a| %>
+  <li><%= link_to a.name, artist_path(a) %>:
+  <%= pluralize(a.song_count, 'song') %></li>
+<% end %>
