@@ -6,9 +6,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <%= link_to "Create Song", new_song_path %> | <%= link_to "All artists", artists_path %> | <%= link_to "All genres", genres_path %> | <%= link_to "All songs", songs_path %>
+    <hr>
     <% flash.each do |name, msg| -%>
       <%= content_tag :div, msg, class: name %>
     <% end -%>
     <%= yield %>
+
   </body>
 </html>

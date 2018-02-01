@@ -9,9 +9,13 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @artists = Artist.all
+    @genres = Genre.all
   end
 
   def create
+    # raise params.inspect
+    # "song"=>{"title"=>"Show Must Go On", "artist_name"=>"Queen", "genre_id"=>"139", "notes"=>["Awesome", "Epic"]}
     @song = Song.new(song_params)
 
     if @song.save
@@ -47,7 +51,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, notes: [:content])
   end
 end
 
