@@ -5,7 +5,13 @@
   <%= f.text_field :title %>
   <br />
 
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br />
+
+  <%= f.label :genre_name %>
+  <%= f.collection_select :genre_name, Genre.all, :id, :name %>
+
+
   <%= f.submit %>
 <% end %>
-
-
