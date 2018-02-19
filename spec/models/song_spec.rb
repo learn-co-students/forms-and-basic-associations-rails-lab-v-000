@@ -63,7 +63,7 @@ RSpec.describe Song, type: :model do
     it 'ignores blank notes' do
       song = Song.new
       song.note_contents = ['', "i'm all alone", '', '']
-      expect(song.note_contents).to eq ["i'm all alone"]
+      expect(song.notes.map(&:content)).to eq ["i'm all alone"]
     end
   end
 
