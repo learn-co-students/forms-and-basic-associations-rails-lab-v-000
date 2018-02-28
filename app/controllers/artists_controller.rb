@@ -12,6 +12,7 @@ class ArtistsController < ApplicationController
   end
 
   def create
+    raise params.inspect
     @artist = Artist.new(artist_params)
 
     if @artist.save
