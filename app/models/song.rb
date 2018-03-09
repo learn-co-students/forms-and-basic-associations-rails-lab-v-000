@@ -32,7 +32,7 @@ class Song < ActiveRecord::Base
   
   def note_contents
        
-    self.notes.try(:content)
+    self.try(:notes).try(:content)
   end
 end
 
