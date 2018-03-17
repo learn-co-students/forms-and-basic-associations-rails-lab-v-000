@@ -27,7 +27,7 @@ class SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
-
+    
     @song.update(song_params)
 
     if @song.save
@@ -47,7 +47,9 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params[:song][:song_notes] ||= []
+    params.require(:song).permit(:title, :artist_name, :genre_id, song_notes: [])
+    
   end
 end
 
