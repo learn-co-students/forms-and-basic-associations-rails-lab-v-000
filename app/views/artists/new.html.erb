@@ -4,6 +4,7 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br />
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
   <%= f.submit %>
 <% end %>
