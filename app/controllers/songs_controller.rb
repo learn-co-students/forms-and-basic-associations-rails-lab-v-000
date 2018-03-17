@@ -46,8 +46,10 @@ class SongsController < ApplicationController
 
   private
 
-  def song_params
-    params.require(:song).permit(:title)
-  end
-end
 
+#set to include the additional form associations created for artist_name, genre_id, and note_contents array
+  def song_params
+    params.require(:song).permit(:artist_name, :title, :genre_id, note_contents: [])
+  end
+  #:artist_name defined in song model
+end
