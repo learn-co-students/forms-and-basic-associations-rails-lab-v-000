@@ -4,7 +4,23 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name, list: 'artist-name'%>
+  <datalist id="artist-name">
+    <% Artist.all.each do |artist| %>
+      <option value="<%= artist.name %>"></option>
+    <%end%>
+    
+  </datalist>
 
+
+  <br />
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br />
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br />
   <%= f.submit %>
 <% end %>
 
