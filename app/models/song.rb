@@ -11,6 +11,8 @@ class Song < ActiveRecord::Base
     self.artist.name if self.artist
   end
 
+
+
   def genre_ids=(ids)
     ids.each do |id|
       genre = Genre.find(id)
