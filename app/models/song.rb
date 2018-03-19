@@ -13,9 +13,9 @@ class Song < ActiveRecord::Base
 
   def genre_id
 
-  def genre_ids=(ids)
-    ids.each do |id|
-      genre = Genre.find(id)
+  def genre_name=(names)
+    names.each do |name|
+      genre = Genre.find(name)
       self.genres << genre
     end
   end
