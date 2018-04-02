@@ -27,7 +27,6 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(contents)
-    byebug
     contents.each do |c|
       note = Note.find_or_create_by(content: c)
       self.notes << note if note.content != ""
@@ -35,7 +34,6 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    byebug
     self.notes.map {|note| note.content}
   end
 
