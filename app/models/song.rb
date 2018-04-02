@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    self.try(:genre).try(:name)
+    self&.genre&.name
   end
 
   def artist_name=(name)
@@ -16,9 +16,10 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    # self&.artist&.name
+    # self.artist.name
+    self&.artist&.name
 
-    self.try(:artist).try(:name)
+    # self.try(:artist).try(:name)
 
     # if self.artist
     #   self.artist.name
@@ -26,6 +27,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(contents)
+    byebug
     contents.each do |c|
       note = Note.find_or_create_by(content: c)
       self.notes << note if note.content != ""
@@ -33,6 +35,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
+    byebug
     self.notes.map {|note| note.content}
   end
 
