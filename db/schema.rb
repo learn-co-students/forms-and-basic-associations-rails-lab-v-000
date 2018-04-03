@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114013240) do
+ActiveRecord::Schema.define(version: 20180403220224) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,22 @@ ActiveRecord::Schema.define(version: 20160114013240) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "nests", force: :cascade do |t|
+    t.string   "make"
+    t.string   "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "sparrow_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -32,12 +44,27 @@ ActiveRecord::Schema.define(version: 20160114013240) do
     t.integer  "song_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string  "title"
+    t.string  "content"
+    t.integer "category_id"
+    t.string  "category_name"
+    t.string  "category"
+  end
+
   create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "artist_id"
     t.integer  "genre_id"
+  end
+
+  create_table "sparrows", force: :cascade do |t|
+    t.string   "name"
+    t.string   "species"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

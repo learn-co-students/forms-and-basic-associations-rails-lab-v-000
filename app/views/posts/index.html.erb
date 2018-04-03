@@ -1,0 +1,7 @@
+<h1>Here is a List of the Posts</h1>
+
+<ul>
+<% @posts.each do |post| %>
+  <li><%= link_to(post.title, post) %></li>
+<% end %>
+</ul>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sparrows</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Species</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sparrows.each do |sparrow| %>
+      <tr>
+        <td><%= sparrow.name %></td>
+        <td><%= sparrow.species %></td>
+        <td><%= link_to 'Show', sparrow %></td>
+        <td><%= link_to 'Edit', edit_sparrow_path(sparrow) %></td>
+        <td><%= link_to 'Destroy', sparrow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sparrow', new_sparrow_path %>

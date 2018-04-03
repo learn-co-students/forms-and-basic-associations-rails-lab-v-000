@@ -1,0 +1,30 @@
+<%= form_for(@nest) do |f| %>
+  <% if @nest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@nest.errors.count, "error") %> prohibited this nest from being saved:</h2>
+
+      <ul>
+      <% @nest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :make %><br>
+    <%= f.text_field :make %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <h1>Can you see this</h1>
+    <%= f.label :sparrow_id %>
+    <%= f.collection_select :sparrow_id, Sparrow.all, :id, :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

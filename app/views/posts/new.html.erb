@@ -1,0 +1,19 @@
+<h1>Make a New Post Here</h1>
+
+<%= form_for(@post) do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <p>
+  <!--This entire block is phase 1 of the (sort-of) codealong here:-->
+  <!--https://learn.co/tracks/full-stack-web-development-v3/rails/associations-and-rails/forms-and-basic-association -->
+  <!--f.label :category_id, "Category ID Number" -->
+  <!--f.text_field :category_id -->
+  <p>
+  <%= f.label "Category Name" %>
+  <%= f.text_field :category_name %>
+  <p>
+  <%= f.label "Content" %>
+  <%= f.text_field :content %>
+  <p>
+  <%= f.submit %>
+<% end %>
