@@ -1,3 +1,5 @@
+require 'pry'
+
 class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
@@ -8,7 +10,9 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    self.genre.name
+    if self.genre
+      self.genre.name
+    end
   end
 
   def artist_name=(name)
@@ -16,7 +20,9 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist.name
+    if self.artist
+      self.artist.name
+    end
   end
 
   def note_contents
