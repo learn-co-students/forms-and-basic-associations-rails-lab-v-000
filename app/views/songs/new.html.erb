@@ -10,8 +10,11 @@
   <%= f.label :genre %>
   <%= f.collection_select :genre_id, Genre.all.sort_by{|g| g.name}, :id, :name %>
   <br>
-  <input name="song[note_contents][]" id="song_notes_1">
-  <input name="song[note_contents][]" id="song_notes_2">
-  <input name="song[note_contents][]" id="song_notes_3">
+  <label>Note 1: </label>
+  <input name="song[note_contents][]" id="song_notes_1"><br>
+  <label>Note 2: </label>
+  <input name="song[note_contents][]" id="song_notes_2"><br>
+  <label>Note 3: </label>
+  <input name="song[note_contents][]" id="song_notes_3"><br>
   <%= f.submit %>
 <% end %>
