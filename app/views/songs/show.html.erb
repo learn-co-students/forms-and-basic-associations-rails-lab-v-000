@@ -1,4 +1,6 @@
 <h1><%= @song.title %></h1>
 <%= @song.artist_name %><br>
 <%= @song.genre_name %><br>
-<%= @song.note_contents %>
+<% @song.note_contents.each do |notes| %>
+<%= notes %>
+<% end %>
