@@ -14,9 +14,9 @@
   <br>
 
   <%= f.label 'Notes' %>
-  <textarea name="notes[content]" id="song_notes_1" cols="30" rows="10"></textarea>
-  <textarea name="notes[content]" id="song_notes_2" cols="30" rows="10"></textarea>
-  <textarea name="notes[content]" id="song_notes_3" cols="30" rows="10"></textarea>
+  <input type="text" name="song[note_contents][]" id="song_notes_1">
+  <input type="text" name="song[note_contents][]" id="song_notes_2">
+  <input type="text" name="song[note_contents][]" id="song_notes_3">
   <br>
 
   <%= f.submit %>

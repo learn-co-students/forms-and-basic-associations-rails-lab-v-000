@@ -8,7 +8,7 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    self.genre
+    self.genre.name if self.genre
   end
 
   def artist_name=(name)
@@ -16,7 +16,7 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist #self.artist.name doesn't work. yyy?
+    self.artist.name if self.artist
   end
 
   def note_contents=(contents)
@@ -26,8 +26,7 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    # self.notes.map(&:content)
+    self.notes.map(&:content) if self.notes
     #self.notes.pluck(:content)
-    self.notes
   end
 end
