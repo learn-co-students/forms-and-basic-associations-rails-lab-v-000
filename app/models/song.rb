@@ -34,7 +34,7 @@ class Song < ActiveRecord::Base
     contents.each do |content|
       note = Note.find_or_create_by(content: content)
       self.notes << note if note.valid?
-    end
+		end
   end
 
   def note_contents
