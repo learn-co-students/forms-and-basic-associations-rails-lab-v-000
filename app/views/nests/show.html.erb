@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @nest.make %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @nest.location %>
+</p>
+
+<%= link_to 'Edit', edit_nest_path(@nest) %> |
+<%= link_to 'Back', nests_path %>

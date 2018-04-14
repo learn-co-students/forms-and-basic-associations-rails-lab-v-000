@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sparrow.name %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @sparrow.species %>
+</p>
+
+<%= link_to 'Edit', edit_sparrow_path(@sparrow) %> |
+<%= link_to 'Back', sparrows_path %>
