@@ -27,9 +27,7 @@ class ArtistsController < ApplicationController
 
   def update
     @artist = Artist.find(params[:id])
-
     @artist.update(artist_params)
-
     if @artist.save
       redirect_to @artist
     else
@@ -45,7 +43,6 @@ class ArtistsController < ApplicationController
   end
 
   private
-
   def artist_params
     params.require(:artist).permit(:name)
   end
