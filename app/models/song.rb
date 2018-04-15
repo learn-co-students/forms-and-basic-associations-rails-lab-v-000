@@ -19,24 +19,23 @@ class Song < ActiveRecord::Base
      self.notes.each do |t|
        allnotes << t.content
       #  t.content << allnotes
-     end
+     end    # self.notes
      allnotes
-    # self.notes
    end
 
    def genre_name=(name)
-
+     self.genre = Genre.find_or_create_by(name: name)
    end
 
    def genre_name
      self.genre.name
    end
 
-   def aritst_name=(name)
+   def artist_name=(name)
      self.artist = Artist.find_or_create_by(name: name)
    end
 
-   def aritst_name
+   def artist_name
      self.artist.name
    end
 end
