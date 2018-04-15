@@ -28,16 +28,14 @@ class Song < ActiveRecord::Base
    end
 
    def genre_name
-     self.genre.name
+     (self.genre && self.genre.name) || nil
    end
 
    def artist_name=(name)
-     if name != ""
-       self.artist = Artist.find_or_create_by(name: name)
-     end
+     self.artist = Artist.find_or_create_by(name: name)
    end
 
    def artist_name
-     self.artist.name
+     (self.artist && self.artist.name) || nil
    end
 end
