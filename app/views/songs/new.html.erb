@@ -3,9 +3,21 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <br />
+ 
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+
+  <%= f.label :genre %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  <input name='song[note_contents][]' id='song_notes_1'>
+  <input name='song[note_contents][]' id='song_notes_2'>
+  <input name='song[note_contents][]' id='song_notes_3'>
 
   <%= f.submit %>
 <% end %>
 
 
+<!--A text input box that sets the song's title.
+A text input box for the artist.
+A selection box for genre. Users should be able to pick amongst existing genres only.
+Several text input boxes to add notes to the song. These should have the IDs song_notes_1, song_notes_2, and so on for the specs to pass. (You might need to search around for how to pass an array using strong_params!)
