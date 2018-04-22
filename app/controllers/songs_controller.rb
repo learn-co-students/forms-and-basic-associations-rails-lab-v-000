@@ -44,10 +44,22 @@ class SongsController < ApplicationController
     redirect_to songs_path
   end
 
+def note_contents=(notes)
+    notes.each do |content|
+      if content != ""
+        self.notes.build(content: content)
+      end
+    end
+  end
+
+  def note_contents
+    self.notes.collect {|note| note.content}
+  end
+
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:artist_name, :title, :genre_id,note_contents: [])
   end
 end
 
