@@ -4,8 +4,22 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
-
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br>
+  <%= f.label :genre_name %>
+  <%= f.text_field :genre_name, list: "song_genre_id" %>
+  <datalist id="song_genre_id">
+    <% Genre.all.each do |genre| %>
+      <option value="<%= genre.name %>"></option>
+    <% end %>
+  </datalist> <br>
+  <%= f.label :song_notes %>
+  <input name="song[note_ids][]"> <br>
+  <%= f.label :song_notes %>
+  <input name="song[note_ids][]"> <br>
+  <%= f.label :song_notes %>
+  <input name="song[note_ids][]">
+  <br>
   <%= f.submit %>
 <% end %>
-
-
