@@ -34,9 +34,11 @@ class Song < ActiveRecord::Base
     self.note = note
   end
 
-  def note_contents
+  def note_contents #needs to return an array of all of the song notes contents
     if self.notes
-      self.notes
+      self.notes.collect do |note|
+        note
+      end
     end
   end
 

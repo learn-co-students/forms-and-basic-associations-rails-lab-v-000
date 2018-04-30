@@ -16,7 +16,8 @@ class SongsController < ApplicationController
     #binding.pry
 
     params[:song][:note_contents].each do |note|
-      Note.create(content: note)
+      @note = Note.create(content: note)
+      @song.notes << @note 
     end
 
 
