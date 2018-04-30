@@ -12,8 +12,11 @@ class SongsController < ApplicationController
   end
 
   def create
-    binding.pry
     @song = Song.new(song_params)
+    params[:song][:note_contents].each do |note|
+      Note.create(content: note)
+    end
+
 
     if @song.save
       redirect_to @song
