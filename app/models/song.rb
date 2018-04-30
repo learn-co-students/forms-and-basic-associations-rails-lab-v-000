@@ -11,15 +11,13 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-<<<<<<< HEAD
+
       if self.artist
         self.artist.name
       end
       #self.try(:artist).try(:name)
-=======
-      #self.artist.name
-      self.try(:artist).try(:name)
->>>>>>> 2543803dadaa781351423c8f90784e6aa5408eec
+
+
   end
 
 
