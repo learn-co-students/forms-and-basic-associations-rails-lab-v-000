@@ -9,6 +9,7 @@
   <%= f.text_field :artist_name %>
   <br />
 
+<%binding.pry%>
   <%= f.collection_select :genre, Genre.all, :id, :name %>
 
 
