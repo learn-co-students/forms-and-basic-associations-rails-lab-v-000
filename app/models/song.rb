@@ -28,6 +28,11 @@ class Song < ActiveRecord::Base
     end
   end
 
+  def genre_name=(name)
+    genre = Genre.find_or_create_by(name: name)
+    self.genre = genre
+  end
+
 
   def note_contents=(note)
     note = Note.find_or_create_by(content: note)
@@ -35,11 +40,13 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents #needs to return an array of all of the song notes contents
+
     if self.notes
       self.notes.collect do |note|
-        note
+        note.content
       end
     end
+
   end
 
 
