@@ -35,8 +35,8 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    if self.note
-      self.note.content
+    if self.notes
+      self.notes
     end
   end
 
