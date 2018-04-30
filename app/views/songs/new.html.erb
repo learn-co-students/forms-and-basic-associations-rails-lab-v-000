@@ -11,6 +11,14 @@
 
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
+  <%= f.label :song_notes_1 %>
+  <%= f.text_field :song_notes_1 %>
+  <br />
+
+  <%= f.label :song_notes_2 %>
+  <%= f.text_field :song_notes_2 %>
+  <br />
+
 
   <%= f.submit %>
 <% end %>
