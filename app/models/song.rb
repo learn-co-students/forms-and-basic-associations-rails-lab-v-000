@@ -28,17 +28,17 @@ class Song < ActiveRecord::Base
     end
   end
 
-=begin
-  def song_notes=(note)
+
+  def note_contents=(note)
     note = Note.find_or_create_by(content: note)
     self.note = note
   end
 
-  def song_notes
+  def note_contents
     if self.note
       self.note.content
     end
   end
-=end
+
 
 end

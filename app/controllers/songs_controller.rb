@@ -13,10 +13,11 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
+=begin
     params[:song][:note_contents].each do |note|
       Note.create(content: note)
     end
-
+=end
 
     if @song.save
       redirect_to @song
