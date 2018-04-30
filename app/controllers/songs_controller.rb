@@ -13,6 +13,7 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
+    binding.pry
 
     params[:song][:note_contents].each do |note|
       Note.create(content: note)
