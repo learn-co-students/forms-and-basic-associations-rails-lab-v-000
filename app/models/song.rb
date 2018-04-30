@@ -18,7 +18,6 @@ class Song < ActiveRecord::Base
   end
 
   def genre_id=(id)
-    binding.pry
     genre = Genre.find_or_create_by(id: id)
     self.genre = genre
   end
