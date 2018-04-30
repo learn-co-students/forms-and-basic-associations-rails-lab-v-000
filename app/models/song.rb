@@ -24,16 +24,18 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
+    thing = []
     if self.notes
       self.notes.each do |note|
-        note.content
+        thing << note.content
       end
     end
+    thing.reject(&:blank?)
   end
 
-  def note_contents=(ids)
-    ids.each do |id|
-      note =  Note.find_or_create_by(content: id)
+  def note_contents=(arr)
+    arr.each do |content|
+      note = Note.find_or_create_by(content: content)
       self.notes << note
     end
   end
