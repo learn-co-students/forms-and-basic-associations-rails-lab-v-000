@@ -40,9 +40,10 @@ class Song < ActiveRecord::Base
   end
 
 
-  def note_contents=(note)
+  def note_contents=(notes)
+    binding.pry
     note = Note.find_or_create_by(content: note)
-    self.note = note
+    self.notes << note
   end
 
   def note_contents #needs to return an array of all of the song notes contents
