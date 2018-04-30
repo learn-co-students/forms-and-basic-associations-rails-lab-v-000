@@ -6,7 +6,6 @@ class Song < ActiveRecord::Base
 
 
   def artist_name=(name)
-    #artist = Artist.find_or_create_by(name: name)
     self.artist = Artist.find_or_create_by(name: name)
   end
 
@@ -14,7 +13,6 @@ class Song < ActiveRecord::Base
       if self.artist
         self.artist.name
       end
-
       #self.try(:artist).try(:name)
   end
 
