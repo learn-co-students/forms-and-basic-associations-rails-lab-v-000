@@ -43,8 +43,11 @@ class Song < ActiveRecord::Base
   def note_contents=(notes)
     notes.each do |note_content|
       if note_content != ""
+        self.notes.build(content: note_content)
+=begin
         @note = Note.find_or_create_by(content: note_content)
         self.notes << @note
+=end
       end
     end
   end
