@@ -16,12 +16,12 @@ class Song < ActiveRecord::Base
 #block in a new array.
 
   def note_contents
-    @self.notes.map(&:content)
+    self.notes.map(&:content)
   end
 
 #we have a custom setter to assign an artist object to the song. It finds the artist object by name.
   def artist_name=(name)
-    self.artist=Artist.find_or_create_by(name: name)
+    self.artist = Artist.find_or_create_by(name: name)
     self.artist = artist
   end
 
@@ -40,9 +40,7 @@ class Song < ActiveRecord::Base
 
 #we have a custom reader method to read the song's artists name.
   def genre_name
-    if self.genre.name
-      self.genre.name
-    end
+     self.try(:genre).try(:name)
   end
 
 
