@@ -22,10 +22,10 @@ class Song < ActiveRecord::Base
     self.genre.name if self.genre != nil
   end
 
-  def note_ids=(ids)
-    ids.each do |id|
-      note = Note.find(id)
-      self.notes << note
+  def note_contents=(contents)
+    contents.each do |content|
+      note = Note.find_or_create_by(content: content)
+      self.notes << note if note.valid?
     end
   end
 
