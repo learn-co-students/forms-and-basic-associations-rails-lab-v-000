@@ -21,12 +21,7 @@ class Song < ActiveRecord::Base
   def artist_name
     self.artist.name
   end
-  # contents.each do |content|
-  #   note = Note.new(content: content)
-  #   self.notes << note
-  #   self.notes.to_s
-  # self.notes << contents.reject{|c| c.empty?}
-  #
+
   def note_contents=(contents)
     contents.each do |content|
       if !content.empty?
