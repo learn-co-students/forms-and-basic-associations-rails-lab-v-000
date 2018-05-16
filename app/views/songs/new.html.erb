@@ -5,7 +5,12 @@
   <%= f.text_field :title %>
   <br />
 
+  <%= f.label :"song[artist_name]" %>
+  <%= f.text_field "song[artist_name]" %>
+  <%= f.label :genre_id %>
+  <%= f.text_field :genre_id %>
+  <%= f.label :notes_1 %>
+  <%= f.text_field :notes_1 %>
+
   <%= f.submit %>
 <% end %>
-
-
