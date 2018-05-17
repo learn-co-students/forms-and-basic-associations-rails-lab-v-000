@@ -2,10 +2,31 @@
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
-  <br />
+  <%= f.text_field :title %><br>
+
+  <%= f.label :artist %>
+  <%= f.text_field :artist_name %><br>
+
+  <%= f.collection_select(:genre_id, Genre.order('name ASC'), :id, :name) %>
+
+  <br>
 
   <%= f.submit %>
 <% end %>
 
+<% #<h1>Create a Song</h1>
 
+#<form class="new_song" id="new_song" action="/songs" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="T9JGXoUrfvvaV066yV+5q5Rqnlc4ZeglmZQMez7Gcdr9Vhce4mck6DuLn46JHZCmtHeG3Lsde/UxWpHxrpNXaA==" />
+#  <label for="song_title">Title</label>
+#  <input type="text" name="song[title]" id="song_title" /><br>
+
+#  <label for="song_artist">Artist</label>
+#  <input type="text" name="song[artist_name]" id="song_artist_name" /><br>
+
+#  <select name="song[genre_id]" id="song_genre_id"><option value="1">Blues</option>
+#<option value="2">Classic Rock</option>
+#<option value="3">Country</option>
+#<option value="4">Dance</option>
+#<option value="5">Disco</option>
+#<option value="6">Funk</option>
+#<option value="7">Grunge</option> ... %>
