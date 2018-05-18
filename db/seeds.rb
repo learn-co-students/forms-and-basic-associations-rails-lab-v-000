@@ -1,12 +1,45 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Song.create(
+  title: "Dark Side of The Moon",
+  artist_id: 2
+)
 
-# ID3 tag music genres are surprisingly specific.
+Song.create(
+  title: "First Day of My Life",
+  artist_id: 3
+)
+
+Song.create(
+  title: "Run",
+  artist_id: 2
+)
+
+Song.create(
+  title: "Let Down",
+  artist_id: 1
+)
+
+Song.create(
+  title: "The Bends",
+  artist_id: 1
+)
+
+Song.create(
+  title: "Weird Fishes",
+  artist_id: 1
+)
+
+Artist.create(
+  name: "Radiohead",
+)
+
+Artist.create(
+  name: "Pink Floyd",
+)
+
+Artist.create(
+  name: "Bright Eyes",
+)
+
 
 genres = Hash[[
   "Blues",
@@ -158,5 +191,3 @@ genres = Hash[[
   "JPop",
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
-
-
