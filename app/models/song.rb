@@ -19,15 +19,21 @@ class Song < ActiveRecord::Base
     self.genre.name if self.genre
   end
 
-  def note_contents=(contents)
-    contents.each do |content|
-      note = Note.find(content: content)
-      self.notes << note
+  def note_contents=(notes)
+    notes.each do |note|
+      if !note.blank?
+        n = Note.find_or_create_by(content: note)
+        self.notes << n
+      end
     end
   end
 
   def note_contents
-
+    content_array = []
+    self.notes.each do |note|
+      content_array << note.content
+    end
+    content_array
   end
 
 end
