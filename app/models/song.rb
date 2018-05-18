@@ -14,24 +14,26 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name=(name)
-    self.genre = Genre.find_or_create_by(name: name)
+    # self.genre = Genre.find_or_create_by(name: name)
   end
 
   def genre_name
     self.genre.name
   end
 
-#   def note_contents=(contents)
-#     self.notes.each do |note|
-#       if note.contents
-#
-#
-#
-#
-#      = Genre.find_or_create_by(contents: contents)
-#   end
-#
-#   def note_contents
-#     self.note.contents
-#   end
+  # Song note_contents= sets notes for a song
+  # 'adds to existing notes'
+  # 'ignores blank notes'
+
+  # note_contents = collection of notes -- ignore if ""
+  def note_contents=(contents)
+
+  end
+
+  # Song note_contents returns the content of all notes as an array
+  # ex. song.note_contents = ['hi', 'there'] - notes have content
+  def note_contents
+
+  end
+
 end
