@@ -12,7 +12,8 @@ class SongsController < ApplicationController
   end
 
   def create
-    # params => "song"=>{"title"=>"Sunshine", "artist_name"=>"Mama Bear", "genre_id"=>"113"}
+    # binding.pry
+    # params => "song"=> {"title"=>"It's a Beautiful Day", "artist_name"=>"Big Bird", "genre_id"=>"108", "note_contents"=>["asdfsadf", "asdfasdf", "dfgsdfghdhs"]}
     @song = Song.new(song_params)
     if @song.save
       redirect_to @song
@@ -47,6 +48,18 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, :genre_id)#, :note_contents => [])
+    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
   end
 end
+
+
+# params:
+
+# "song"=>
+#   {"title"=>"Lollipops",
+#    "artist_name"=>"50s Ladies",
+#    "genre_id"=>"68",
+#    "note_contents"=>["content 1", "content 2", "content 3"]},
+#  "commit"=>"Create Song",
+#  "controller"=>"songs",
+#  "action"=>"create"}
