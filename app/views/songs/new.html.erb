@@ -2,10 +2,30 @@
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
-  <%= f.text_field :title %>
   <br />
-
+  <%= f.text_field :title %>
+  <br><br>
+  <%= f.label :artist_name %>
+  <br />
+  <%= f.text_field :artist_name %>
+  <br><br>
+  <!-- f.collection_select already knows which object this is for through the form_for @song. genre_id is the name of our param or the method, Genre.all is the collection, :id is the value that we want when the user selects a genre, :name is the value the user will see when they select a genre name and prompt is an option the user will see in the select form-->
+  <%= f.label :genre %>
+  <br />
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, {prompt: "Please select a genre"} %>
+  <br><br>
+  
+  Notes:
+  <br />
+  <input id="song_notes_1" name="song[note_contents][]">
+  <br />
+  <input id="song_notes_2" name="song[note_contents][]">
+  <br />
+  <input id="song_notes_3" name="song[note_contents][]">
+  <br><br>
+ 
   <%= f.submit %>
 <% end %>
 
 
+ 
