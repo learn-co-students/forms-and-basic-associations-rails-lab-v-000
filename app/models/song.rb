@@ -19,10 +19,10 @@ class Song < ActiveRecord::Base
     self.artist.name if self.artist      
   end
 
-  def note_contents=(notes)
-    notes.each do |content|
-      if content.strip != ''
-        self.notes.build(content: content)
+  def note_contents=(the_notes)
+    the_notes.each do |ind_note|
+      if ind_note.strip != ''
+        self.notes.build(content: ind_note)
       end
     end
   end
