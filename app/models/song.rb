@@ -23,12 +23,20 @@ class Song < ActiveRecord::Base
     self.genre ? self.genre.name : nil
   end
 
-  #def note_contents=(contents)
-  #  self.note_contents = contents
-  #end
+  def note_contents=(contents)
+    contents.each do |content|
+      if content != ''
+        self.notes.build(content: content)
+      end
+    end
+  end
 
-  #def note_contents
-  #  self.note_contents
-  #end
+  def note_contents
+    notes = []
+    self.notes.each do |note|
+      notes << note.content
+    end
+    notes
+  end
 
 end
