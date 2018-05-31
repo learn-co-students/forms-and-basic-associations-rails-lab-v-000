@@ -12,18 +12,13 @@ class SongsController < ApplicationController
   end
 
   def create
-    # NOTE : Was having trouble figuring out how to use the "note_contents" along with the specifically named input fields
-    # puts "Create Params = #{params}"
-    params[:song][:note_contents] = []
-    # puts "params song = #{params[:song]} || params song notes = #{params[:song_notes_1]}"
-    params[:song][:note_contents] << params[:song_notes_1]
-    params["song"]["note_contents"] << params["song_notes_2"]
-    # puts "Note Params = #{note_params}"
-    # params[:song][:note_contents] << note_params
 
-    # puts "Updated params : #{params}"
+    # NOTE : This is definitely a "hack" given the odd param input name and model method constraints
+    params[:song][:note_contents] = []
+    params[:song][:note_contents] << params[:song_notes_1]
+    params[:song][:note_contents] << params[:song_notes_2]
+
     @song = Song.new(song_params)
-    # puts "Song Params = #{song_params}"
     if @song.save
       redirect_to @song
     else
@@ -58,10 +53,6 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:title, :genre_id, :artist_name, note_contents: [])
-  end
-
-  def note_params
-    params.permit(:song_notes_1, :song_notes_2)
   end
 
 end

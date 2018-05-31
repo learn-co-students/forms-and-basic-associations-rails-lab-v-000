@@ -25,13 +25,6 @@
   <input name="song_notes_1">
   <input name="song_notes_2">
 
-  <%= f.text_field :note_contents, list: "notes_autocomplete" %>
-  <datalist id="notes_autocomplete">
-    <% Note.all.each do |note| %>
-      <option value="<%= note.content %>"><%= note.content %></option>
-    <% end %>
-  </datalist>
-
 
   <%= f.submit %>
 <% end %>
