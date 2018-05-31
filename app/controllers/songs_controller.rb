@@ -12,6 +12,7 @@ class SongsController < ApplicationController
   end
 
   def create
+    # NOTE : Was having trouble figuring out how to use the "note_contents" along with the specifically named input fields
     # puts "Create Params = #{params}"
     params[:song][:note_contents] = []
     # puts "params song = #{params[:song]} || params song notes = #{params[:song_notes_1]}"
