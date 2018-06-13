@@ -44,6 +44,5 @@ class Song < ActiveRecord::Base
       note_contents << note.content
     end
     note_contents
-    # self.notes ? self.note_contents : nil
   end
 end
