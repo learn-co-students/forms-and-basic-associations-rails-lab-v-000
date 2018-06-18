@@ -3,6 +3,16 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
+  def genre_id=(genre_id)
+    @genre = Genre.find_or_create_by(id: genre_id)
+
+    self.genre = @genre
+  end
+
+  def genre_id
+    self.genre.id if self.genre
+  end
+  
   def genre_name=(genre_name)
     @genre = Genre.find_or_create_by(name: genre_name)
 
