@@ -31,7 +31,7 @@ class Song < ActiveRecord::Base
     self.artist.name if self.artist
   end
 
-  def note_contents=(notes)
+  def note_contents=(note_contents)
     note_contents.each do |nc|
       unless nc.empty?
         note = Note.find_or_create_by(content: nc)
