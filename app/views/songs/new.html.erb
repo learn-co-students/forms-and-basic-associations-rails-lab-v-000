@@ -3,8 +3,17 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.text_field :artist_name %>
+  <%= f.select(:genre_id) do %>
+  	<% @genres.each do |genre| %>
+  		<%= content_tag(:option, genre.name, value: genre.id) %>
+  	<% end %>
+  <% end %>
+  <input name="song[note_contents][]" id="song_notes_1">
+  <input name="song[note_contents][]" id="song_notes_2">
+  <input name="song[note_contents][]" id="song_notes_3">
   <br />
-
+ 
   <%= f.submit %>
 <% end %>
 
