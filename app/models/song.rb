@@ -1,3 +1,4 @@
+require 'pry'
 class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
@@ -8,7 +9,7 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    self.genre ? self.genre.name :nil
+    self.genre ? self.genre.name : nil
   end
 
   def artist_name=(name)
@@ -16,7 +17,7 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist ? self.artist.name :nil
+    self.artist ? self.artist.name : nil
   end
 
   def note_contents=(notes)
@@ -28,8 +29,8 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    if self.notes.empty?
-      self.notes.map! {|note| note.contents}
+    if !self.notes.empty?
+      self.notes.map {|note| note.content}
     end
   end
 
