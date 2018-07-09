@@ -1,4 +1,4 @@
-<h1>Create a Song</h1>
+<h1>Create a Song</h1> 
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
@@ -12,9 +12,12 @@
       <% end %>
   </datalist>
 
-  <%= f.collection_select :genre_name, Genre.all, :name, :name %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  <label>Notes</label>
+  <input type='text' id='song_notes' name='song[notes][1]'>
+  <input type='text' id='song_notes' name='song[notes][2]'>
 
-  <br />
+
 
   <%= f.submit %>
 <% end %>
