@@ -21,19 +21,20 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-      binding.pry
-       notes.each do |note|
+
+        notes.find_all do |note|
            if note != "" || note != ''
-               self.notes << Note.find_or_create_by(:content => note)
-            end
-      end
+               self.notes << Note.create(:content => note)
+           end
+       end
   end
 
   def note_contents
-      binding.pry
-      self.notes.collect do |note|
-          note.content
+      n = []
+     self.notes.each do |note|
+        n << note.content
       end
+      n
   end
 
 end
