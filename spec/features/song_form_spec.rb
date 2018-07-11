@@ -35,4 +35,4 @@ describe "the song form", :type => :feature do
     find('input[name="commit"]').click
     expect(Song.last.note_contents).to eq ['great piano', 'inaccurate seismology']
   end
-end
+end 
