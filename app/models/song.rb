@@ -31,7 +31,6 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    #binding.pry
     contents = []
     self.notes.each do |note|
       contents << note.content
