@@ -22,13 +22,17 @@ class Song < ActiveRecord::Base
   def note_contents=(notes)
     notes.each do |content|
       if content.strip != ''
-        self.notes.new(content: content)
+        self.notes.build(content: content)
       end
     end
   end
 
   def note_contents
-    self.notes.map { |content| content}
+    self.notes.map(&:content) #& means that you are passing a block
+
+    # self.notes.map(&:content.to_proc).join(' ')
+    # self.notes.each { |content| content}
+    # self.notes.pluck(:content)
   end
 
 end
