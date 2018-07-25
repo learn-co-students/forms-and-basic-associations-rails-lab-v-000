@@ -14,8 +14,8 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-    binding.pry
-    params[:song][:notes].each { |n|
+
+    params[:song][:notes].delete_if(&:blank?).each { |n|
       @song.notes.build(:content => n)
     }
     if @song.save

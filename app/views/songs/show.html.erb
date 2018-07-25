@@ -3,8 +3,7 @@
 Title: <%= @song.title %><br/>
 Artist: <%= @song.artist_name %><br/>
 Genre: <%= @song.genre_name %>
-<ul>
-  <% @song.notes.each do |n| %>
-    <li><%= n.content %></li>
+<% @song.note_contents.each do |content| %>
+    <li><%= content %></li>
   <% end %>
 </ul>
