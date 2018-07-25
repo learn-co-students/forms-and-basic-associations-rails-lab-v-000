@@ -21,14 +21,23 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(arry)
-    arry.delete_if(&:blank?).each { |c|
-      if !Note.find_by(content: c, song_id: self.id)
-        n = Note.new(:content => c, :song_id => self.id)
-        self.notes << n
+    # Better implementation below.   Note- neither seems to
+    # remove old notes.
+    # it doesn't remove old notes (that are not in new array)
+    # arry.delete_if(&:blank?).each { |c|
+    #   if !Note.find_by(content: c, song_id: self.id)
+    #     n = Note.new(:content => c, :song_id => self.id)
+    #     self.notes << n
+    #   end
+    # }
+    arry.each do |content|
+      if content.strip != ''
+        self.notes.build(content: content)
       end
-    }
+    end
   end
   def note_contents
-    self.notes.map { |note| note.content}
+  #  self.notes.map { |note| note.content}  more concise below
+    self.notes.map(&:content)
   end
 end
