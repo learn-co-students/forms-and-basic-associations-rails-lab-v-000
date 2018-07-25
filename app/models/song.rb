@@ -21,4 +21,16 @@ class Song < ActiveRecord::Base
     self.artist.name
   end
 
+  def note_contents=(arr_note_contents)
+    arr_note_contents.each do |note|
+      if note != ""
+        self.notes.build(content: note)
+      end
+    end
+  end
+
+  def note_contents
+    self.notes.map(&:content)
+  end
+
 end
