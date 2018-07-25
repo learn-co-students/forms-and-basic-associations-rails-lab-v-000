@@ -21,16 +21,14 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(arry)
-    arry.each { |n|
-      if !Note.find_by(content: n, song_id: self.id)
-        binding.pry
-        self.note_ids << Note.create(:content => n, :song_id => self.id)
+    arry.delete_if(&:blank?).each { |c|
+      if !Note.find_by(content: c, song_id: self.id)
+        n = Note.new(:content => c, :song_id => self.id)
+        self.notes << n
       end
     }
-    self.save
-    binding.pry
   end
   def note_contents
-    self.note_ids.map { |id| Note.find(id).content}
+    self.notes.map { |note| note.content}
   end
 end
