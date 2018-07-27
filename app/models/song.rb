@@ -33,7 +33,9 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    self.notes.map(&:content)
+    # self.notes.map(&:content)
+    # &: is the shorthanded way of writing a block like below.
+    self.notes.map {|note| note.content}
   end
 
 end
