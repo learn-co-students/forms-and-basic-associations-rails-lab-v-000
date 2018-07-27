@@ -18,6 +18,9 @@ class Song < ActiveRecord::Base
   def artist_name
     # self.artist.name if self.artist
     # self.try(:artist).try(:name)
+    
+    # ternary_operator
+    # if_this_is_a_true_value ? then_the_result_is_this : else_it_is_this
      self.artist ? self.artist.name : nil
   end
 
