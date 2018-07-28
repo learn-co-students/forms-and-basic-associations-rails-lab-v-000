@@ -22,22 +22,20 @@ class Song < ActiveRecord::Base
    end
    
    
-   
-   
-   def note_contents=(notes)
-      notes = self.notes.reject{|n| n.empty?}
-      notes.each {|n| self.notes.build(content: note)}
-      
-   end
+  def note_contents=(notes)
+    puts "#{notes.inspect}"
+      notes.each do |c|
+      if c != ''
+        self.notes.build(content: c)
+      end
+    end
+  end
 
  
- 
-   def note_contents
+  def note_contents
       self.notes.map(&:content)
-   end
-   
-   
-   
+  end
+
 
 end
 
