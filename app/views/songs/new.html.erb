@@ -4,8 +4,16 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
-
+  <%= f.label :artist %>
+  <%= f.text_field :artist %>
+  <br />
+  <%= f.label :genre %>
+  <%= f.text_field :genre, list:"genre_choices"%>
+  <datalist class="genre_choices">
+    <%= Genre.all.each do |genre| %>
+    <option value="">
+    <% end  %>
+  </datalist>
+  <br />
   <%= f.submit %>
 <% end %>
-
-
