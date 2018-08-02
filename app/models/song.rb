@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
   attr_reader :genre_name
   attr_reader :artist_name
-  #attr_reader :note_contents
+  
 
   def genre_name= (arg)
     self.genre = Genre.all.find_or_create_by(name:arg)
@@ -22,15 +22,6 @@ class Song < ActiveRecord::Base
   def note_contents=(arg)
     arg.each{|content|self.notes.build(content: content) unless content.empty? }
    end
-   #  notes.each do |content|
-   #   if content.strip != ''
-   #     self.notes.build(content: content)
-   #   end
-   #
-   # end
-    # self.notes << Note.all.find_or_create_by(content:arg)
-    # self.save
-    # @note_contents = arg if self.persisted?
 
   def note_contents
      self.notes.collect(&:content)
