@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 
   attr_reader :genre_name
   attr_reader :artist_name
-  
+
 
   def genre_name= (arg)
     self.genre = Genre.all.find_or_create_by(name:arg)
