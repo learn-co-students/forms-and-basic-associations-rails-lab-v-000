@@ -29,13 +29,11 @@ def note_contents=(contents)
 end
 
 def note_contents
-  content_array = []
-  self.notes.each do |note|
+    content_array = []
+    self.notes.each do |note|
     content_array << note.content
-    binding.pry
   end
   content_array
-  binding.pry
 end
 
 end
