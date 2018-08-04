@@ -19,16 +19,23 @@ def genre_name
    self.genre ? self.genre.name : nil
 end
 
-def note_contents=(notes)
-  notes.each do |note|
-    if !note.empty?
-    self.notes.build(note)
+def note_contents=(contents)
+  contents.each do |content|
+    if !content.empty?
+    song = self.notes.build(content: content)
+    song.save
   end
   end
 end
 
 def note_contents
-  self.notes
+  content_array = []
+  self.notes.each do |note|
+    content_array << note.content
+    binding.pry
+  end
+  content_array
+  binding.pry
 end
 
 end
