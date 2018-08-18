@@ -23,9 +23,18 @@ end
 
 def note_contents=(contents)
   contents.each do |content|
-    note = Note.find(content)
-    self.notes << note
+    if content != ""
+      self.notes.build(content: content) #it's an association method between song and notes.
+    end
   end
+end
+
+def note_contents
+  arr = []
+  self.notes.each do |note|
+    arr << note.content
+  end
+  arr
 end
 
 
