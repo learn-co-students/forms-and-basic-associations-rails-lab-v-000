@@ -11,11 +11,18 @@
 
   <%= f.label :genres %>
   <%= f.text_field :genre_id%>
- 
- 
+
  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
      # Always want to collect by id value...
-     
+
+
+  <%= f.label :notes %>
+  <%= f.text_field :note_id%>
+ 
+ 
+ <%= f.collection_select :note_id, Note.all, :id, :name %>
+     # Always want to collect by id value...
+
   <%= f.submit %>
 <% end %>
 
