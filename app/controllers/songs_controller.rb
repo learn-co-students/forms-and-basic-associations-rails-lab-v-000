@@ -16,8 +16,6 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @genre = Genre.find(params[:song][:genre_id])
-
-    
     @song.genre = @genre  
     #association.....!!!!!!!
     # This is where the assocaiton will occur.... bring song and genre together...
