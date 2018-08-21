@@ -5,26 +5,31 @@ class Song < ActiveRecord::Base
   has_many :notes
   
   def genre_name=(name)
-    self.genre = Genre.find_or_create_by(name: name)
+    genre = Genre.find_or_create_by(name: name)
   end
   
   def genre_name
-    self.genre ? self.genre.name : nil
+    genre ? genre.name : nil
   end
   
   def artist_name=(name)
-    self.artist = Artist.find_or_create_by(name: name)
+    artist = Artist.find_or_create_by(name: name)
   end
   
   def artist_name
-    self.artist ? self.artist.name : nil
+    artist ? artist.name : nil
   end
   
   def note_contents=(content)
-    
+    content.each do |content|
+      content = Note.find_or_create_by(content: content)
+    end
   end
   
   def note_contents
+    if note
+      note.content.collect { |content| }
+    end
   end
   
 end
