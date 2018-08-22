@@ -20,15 +20,15 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
   
-  def note_contents=(contents)
-    contents.each do |content|
-      self.notes << Note.find_or_create_by(content: content)
+  def note_contents=(notes)
+    notes.each do |content|
+      self.notes << Note.find_or_create_by(content: content) unless content.strip.empty?
     end
   end
   
   def note_contents
     if self.notes
-      self.notes.collect { |note| note.content unless note.content.to_s.empty? }.compact
+      self.notes.collect { |note| note.content unless note.content.to_s.strip.empty? }.compact
     end
   end
   
