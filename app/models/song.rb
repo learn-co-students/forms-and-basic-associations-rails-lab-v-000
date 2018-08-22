@@ -28,8 +28,7 @@ class Song < ActiveRecord::Base
   
   def note_contents
     if self.notes
-binding.pry      
-      self.notes.content.collect { |content| }
+      self.notes.collect { |content| content }
     end
   end
   
