@@ -28,7 +28,7 @@ class Song < ActiveRecord::Base
   
   def note_contents
     if self.notes
-      self.notes.compact.reject { |note| note.empty? }
+      self.notes.reject { |note| note.content.to_s.empty? }
     end
   end
   
