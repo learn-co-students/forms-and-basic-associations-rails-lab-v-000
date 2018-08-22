@@ -28,9 +28,7 @@ class Song < ActiveRecord::Base
   
   def note_contents
     if self.notes
-binding.pry
-      self.notes.collect { |note| note.content unless note.content.to_s.empty?  }
-      # self.notes.content.reject { |note| note.content.to_s.empty? }
+      self.notes.collect { |note| note.content unless note.content.to_s.empty?  }.compact
     end
   end
   
