@@ -1,9 +1,9 @@
 <h1>All songs</h1>
 
 <% @songs.each do |song| %>
-  <span class=song-title><%= song.title %></span>
-  <span class=song-artist><%= song.try(:artist).try(:name) %></span>
-  <span class=song-genre><%= song.try(:genre).try(:name) %></span>
+  <span class=song-title>Title: <%= song.title %> -</span>
+  <span class=song-artist>Artist: <%= song.try(:artist).try(:name)%> -</span>
+  <span class=song-genre>Genre: <%= song.try(:genre).try(:name) %></span>
   <ul class=song-notes>
     <% song.try(:notes).try :each do |note| %>
       <li class=song-note><%= note.content %></li>
@@ -11,3 +11,6 @@
   </ul>
 
 <% end %>
+
+
+<%=link_to("New Song", new_song_path)%>

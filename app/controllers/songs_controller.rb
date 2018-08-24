@@ -9,9 +9,16 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @genres = Genre.all
+    @names = []
+    @genres.each do |genre|
+      @names << genre.name
+    end
+    @names
   end
 
   def create
+    raise params.inspect
     @song = Song.new(song_params)
 
     if @song.save
@@ -47,7 +54,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :genre_name, :artist_name)
   end
 end
-
