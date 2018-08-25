@@ -3,9 +3,32 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name, list: "categories_autocomplete" %>
+  <datalist id="categories autocomplete">
+    <% Artist.all.each do |artist| %>
+      <option value="<%= artist.name %>"></option>
+    <% end %>
+  </datalist>
   <br />
+  <%= f.label :genre_id %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name  %>
+  <!-- f.collection_select method, collection, value, content  -->
+  <!-- f.collection select:
+  <select name="song[genre_name]" id="song_genre_name">
+    <option value="Blues">Blues</option>
+  </select> -->
 
+  <!-- Way to create array form with form_for -->
+  <!-- <%= f.label :note_contents %>
+  Note 1: <%= f.text_field :note_contents, multiple: true %>
+  Note 2: <%= f.text_field :note_contents, multiple: true %> -->
+
+  <label for="song_notes_1">Note 1</label>
+  <input type="text" name="song[note_contents][]" id="song_notes_1">
+  <label for="song_notes_2">Note 2</label>
+  <input type="text" name="song[note_contents][]" id="song_notes_2">
+
+  <!-- <input multiple="multiple" type="text" value="" name="song[note_contents][]" id="song_note_contents"> -->
   <%= f.submit %>
 <% end %>
-
-
