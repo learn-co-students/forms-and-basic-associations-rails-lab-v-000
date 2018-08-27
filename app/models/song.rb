@@ -29,12 +29,22 @@ class Song < ActiveRecord::Base
     end
   end
 
-  def note_contents=(note)
-    @@notes << note
+  def note_contents=(notes_array)
+    notes_array.each do |note|
+      if note != ""
+        @note = Note.create(content: note)
+        self.notes << @note
+      end
+    end
   end
 
   def note_contents
-    @@notes
+    @notes = []
+    self.notes.each do |note|
+      @notes << note.content
+    end
+    @notes
   end
+
 
 end

@@ -1,9 +1,9 @@
 <h1>Create a Song</h1>
 
-<%= form_for @song  do |f| %>
+<%= form_for(@song) do |f| %>
   <p>Title: <%= f.text_field :title %></p>
   <p>Artist: <%= f.text_field :artist_name %></p>
-  <p>Choose a Genre: <%= f.select(:genre_name, @names)%></p>
+  <p>Choose a Genre: <%= f.select(:genre_name, @names, {}, :id => "song_genre_id")%></p>
   <p>Optional Notes:</p>
   <input type="text" name="song[note_contents][]" id="song_notes_1">
   <input type="text" name="song[note_contents][]" id="song_notes_2">

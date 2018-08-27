@@ -18,11 +18,12 @@ class SongsController < ApplicationController
   end
 
   def create
-    raise params.inspect
     @song = Song.new(song_params)
-
+    if !notes.empty?
+      @song.note_contents=(notes)
+    end
     if @song.save
-      redirect_to @song
+      redirect_to song_path(@song)
     else
       render :new
     end
@@ -38,7 +39,7 @@ class SongsController < ApplicationController
     @song.update(song_params)
 
     if @song.save
-      redirect_to @song
+      redirect_to song_path(@song)
     else
       render :edit
     end
@@ -53,7 +54,18 @@ class SongsController < ApplicationController
 
   private
 
+  def notes
+    @notes = []
+    params[:song][:note_contents].each do |note|
+      if note != ""
+        @notes << note
+      end
+    end
+    @notes
+  end
+
   def song_params
     params.require(:song).permit(:title, :genre_name, :artist_name)
   end
+
 end
