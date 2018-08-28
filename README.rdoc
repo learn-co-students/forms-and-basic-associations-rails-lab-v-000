@@ -26,3 +26,10 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+
+
+Note: to self....
+   #we do the assocaion.. complete the association for the different
+    #methods in the controller.
+    # This is where the assocaiton will occur.... bring song and genre together...

@@ -1,4 +1,6 @@
+require "pry"
 class SongsController < ApplicationController
+  
   def index
     @songs = Song.all
   end
@@ -13,7 +15,10 @@ class SongsController < ApplicationController
 
   def create
     @song = Song.new(song_params)
-
+    @genre = Genre.find(params[:song][:genre_id])
+    @song.genre = @genre  
+    #association.....!!!!!!!
+    # This is where the assocaiton will occur.... bring song and genre together...
     if @song.save
       redirect_to @song
     else
@@ -47,7 +52,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_name, note_contents:[])
   end
 end
 
