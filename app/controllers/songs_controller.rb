@@ -1,3 +1,4 @@
+require 'pry'
 class SongsController < ApplicationController
   def index
     @songs = Song.all
@@ -12,7 +13,9 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
+    artist = Artist.find_or_create_by(name: params[:song][:artist_name])
+
+    @song = Song.create(song_params)
 
     if @song.save
       redirect_to @song
@@ -47,7 +50,8 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    # any params with empty arrays must go last! :3
+    # be careful with strong params failures ... be warned the console by passes strong params
+    params.require(:song).permit(:artist_name, :title, :genre_id, :note_contents => [])
   end
 end
-
