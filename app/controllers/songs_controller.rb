@@ -16,7 +16,6 @@ class SongsController < ApplicationController
   end
 
   def create
-    p song_params
     song = Song.create(song_params)
     redirect_to controller: 'songs', action: 'index'
   end
