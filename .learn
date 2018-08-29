@@ -2,7 +2,7 @@ tags:
   - forms
   - associations
   - collection_select
-  - datalist  
+  - datalist
 languages:
   - ruby
 resources: 0
