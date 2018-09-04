@@ -28,13 +28,16 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    self.notes.collect(&:content)
+    self.notes.collect do |note|
+        note[:content]
+    end
+    # self.notes.collect(&:content)
   end
 
   def note_ids=(ids)
     ids.each do |id|
       note = Note.find(id)
-      self.notes << note 
+      self.notes << note
     end
   end
 

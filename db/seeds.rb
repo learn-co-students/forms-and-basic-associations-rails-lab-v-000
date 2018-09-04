@@ -159,4 +159,26 @@ genres = Hash[[
   "Synthpop"
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
+prince = Artist.create(name: "Prince")
+drake = Artist.create(name: "Drake")
+garth = Artist.create(name: "Garth Brooks")
+m5 = Artist.create(name: "Maroon 5")
 
+prince.songs << Song.create(title: "prince song")
+drake.songs << Song.create(title: "drake song")
+garth.songs << Song.create(title: "garth song")
+m5.songs << Song.create(title: "m5 song")
+
+prince.songs << Song.create(title: "prince song2")
+drake.songs << Song.create(title: "drake song2")
+garth.songs << Song.create(title: "garth song2")
+m5.songs << Song.create(title: "m5 song2")
+
+prince.songs.first.notes << Note.create(content: "this prince song rocks!")
+drake.songs.first.notes << Note.create(content: "this drake song rocks!")
+garth.songs.first.notes << Note.create(content: "this garth song rocks!")
+m5.songs.first.notes << Note.create(content: "this m5 song rocks!")
+prince.songs.first.notes << Note.create(content: "this prince song rocks!!!!")
+drake.songs.first.notes << Note.create(content: "this drake song rocks!!!!")
+garth.songs.first.notes << Note.create(content: "this garth song rocks!!!!")
+m5.songs.first.notes << Note.create(content: "this m5 song rocks!!!!!")
