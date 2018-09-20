@@ -22,7 +22,8 @@ class Song < ActiveRecord::Base
   def note_contents=(song_notes)
     song_notes.delete_if(&:empty?)
     song_notes.each do |content|
-      self.notes << Note.new(content: content) 
+      self.notes << Note.new(content: content)
+      #test 
     end
   end
 
