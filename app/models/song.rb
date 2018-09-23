@@ -23,14 +23,18 @@ class Song < ActiveRecord::Base
     contents.each do |c|
       if !c.strip.empty?
           note = Note.new(content: c, song_id: self.id)
-          note.save
           self.notes << note
       end
     end
+
+    #notes.each do |content|
+    #  if content.strip != ""
+    #    self.notes.build(content: content)
+    #  end
+    #end
   end
 
   def note_contents
     self.notes.collect{|n| n.content}
-    binding.pry
   end
 end
