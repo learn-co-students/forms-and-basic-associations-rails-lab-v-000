@@ -1,7 +1,7 @@
 class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
-  accepts_nested_attributes_for :notes
+  
 
   def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
