@@ -20,13 +20,14 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    self.notes.content
+    self.notes.map(&:content)
   end
 
-  def note_contents=(contents)
-    unless contents == ""
-      new_note = Note.create(song_id: self.id)
-      self.notes << new_note
+  def note_contents=(notes)
+    notes.each do |content|
+      if content.strip != ""
+        self.notes.build(content: content)
+      end
     end
   end
 end
