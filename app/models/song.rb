@@ -20,4 +20,17 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil   #if statement
   end
 
+  def note_contents=(content)
+    @notes = []
+    content.each do |note|
+      @note = Note.create(content: note)
+      @notes << @note
+    end
+    self.notes = @notes #each !!
+  end
+
+  def note_contents
+    self.note ? self.note.content : nil
+  end
+
 end
