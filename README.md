@@ -1,4 +1,4 @@
-# Forms And Basic Associations Rails Lab
+rake # Forms And Basic Associations Rails Lab
 
 ## Objectives
 
