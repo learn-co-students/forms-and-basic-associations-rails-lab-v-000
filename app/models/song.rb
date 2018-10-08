@@ -17,8 +17,7 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-    self.artist ? self.artist.name : nil
-    binding.pry
+    self.artist.name if self.artist
   end
   
   def note_contents=(contents)
