@@ -1,5 +1,5 @@
 require 'rails_helper'
-
+require 'pry'
 RSpec.describe Song, type: :model do
   describe 'genre_name=' do
     it 'sets the genre to the genre of the specified name' do
@@ -36,6 +36,7 @@ RSpec.describe Song, type: :model do
   describe 'note_contents' do
     it 'returns the content of all notes as an array' do
       song = Song.new
+      #binding.pry
       song.note_contents = ['hi', 'there']
       expect(song.note_contents).to eq ['hi', 'there']
     end
