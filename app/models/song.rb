@@ -21,11 +21,9 @@ class Song < ActiveRecord::Base
     self.artist = artist
   end
 
-  def note_contents=(notes)
-    notes.each do |content|
-      if content.strip != ''
-        self.notes.build(content: content)
-      end
+  def note_contents=(contents)
+    contents.each do |content|
+      self.notes.build(content: content) unless content.empty?
     end
   end
 
