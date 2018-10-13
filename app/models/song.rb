@@ -21,6 +21,7 @@ class Song < ActiveRecord::Base
 
   def note_contents=(contents)
     no_blank_content = contents.reject {|c| c.empty?}
+
     no_blank_content.each do |content|
       note = Note.find_or_create_by(content: content)
       self.notes << note
@@ -28,6 +29,6 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    self.notes.collect {|note| note.content}
+    self.notes ? self.notes.collect {|note| note.content} : nil
   end
 end
