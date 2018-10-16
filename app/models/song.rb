@@ -21,10 +21,15 @@ class Song < ActiveRecord::Base
     self.try(:artist).try(:name)
   end
 
-  def note_ids=(ids)
-    ids.each do |id|
-      song = Song.find(id)
-      self.songs << song 
+  def note_contents=(notes)
+    notes.each do |content|
+      if content.strip != ''
+        self.notes.build(content: content)
+      end
     end
   end
+
+def note_contents
+  self.notes.map(&:content)
 end
+end 
