@@ -33,11 +33,4 @@ class Song < ActiveRecord::Base
   def note_contents
     self.notes.map(&:content)
   end
-
-  def note_ids=(ids)
-    ids.each do |id|
-      note = Note.find(id)
-      self.notes << note
-    end
-  end
 end
