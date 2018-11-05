@@ -39,8 +39,8 @@ class Song < ActiveRecord::Base
   def note_contents=(n_contents)
     n_contents.each do |n|
       if !n.blank?
-        self.build_note(content: n)
-        self.save
+        note = Note.find_or_create_by(content: n)
+        self.notes << note
       end
     end
   end
