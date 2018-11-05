@@ -1,3 +1,4 @@
+require 'pry'
 class Song < ActiveRecord::Base
   # add associations here
   belongs_to :artist
@@ -38,8 +39,8 @@ class Song < ActiveRecord::Base
   def note_contents=(n_contents)
     n_contents.each do |n|
       if !n.blank?
-        note = Note.find_or_create_by(content: n)
-        self.notes << note
+        self.build_note(content: n)
+        self.save
       end
     end
   end
