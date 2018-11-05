@@ -12,11 +12,11 @@ class Song < ActiveRecord::Base
     self.artist = Artist.find_or_create_by(name: name)
   end
 
-  def song_genre_id
-    self.genre ? self.genre.id : nil
+  def genre_name
+    self.genre ? self.genre.name : nil
   end
 
-  def song_genre_id=(name)
+  def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
   end
 
@@ -28,11 +28,11 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents
-    contents = []
+    c = []
     self.notes.each do |note|
-      contents << note.content
+      c << note.content
     end
-    contents
+    c
   end
 
   def note_contents=(n_contents)

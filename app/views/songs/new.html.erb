@@ -14,14 +14,16 @@
 
   </datalist>
 
-  <%= f.label :song_genre_id %>
-  <%= f.text_field :song_genre_id, list: "genres_autocomplete" %>
+  <%= f.label :genre_name %>
+  <%= f.text_field :genre_name, list: "genres_autocomplete", id: "song_genre_id" %>
   <datalist id="genres_autocomplete">
     <% Genre.all.each do |genre| %>
     <option value="<%= genre.name %>"></option>
     <% end %>
-
   </datalist>
-
+  <h4>Song Notes:</h4>
+  <input type="text" name="song[:notes][]" value="" id="song_notes_1">
+  <input type="text" name="song[:notes][]" value="" id="song_notes_2">
+  <input type="text" name="song[:notes][]" value="" id="song_notes_3">
   <%= f.submit %>
 <% end %>
