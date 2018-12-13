@@ -14,16 +14,24 @@
 
   <br>
   
-  <%= f.label :genre_name %>
-  <%= f.collection_select :genre_name, Genre.all, :name, :name %>
+  <%= f.label :genre_name %> 
+  
+  <select name="song[genre_name]" id="song_genre_id">
+      <% Genre.all.each do |genre| %>
+        <option value="<%= genre.name %>"><%= genre.name %></otion>
+      <% end %>
+  </select>
+ 
+
+
   
   <br>  
   <%= f.label :note_contents %>
-  <%= f.text_field :note_contents %>
+  <input id="song_notes_1" name="song[note_contents][]" type="text"/>
   <%= f.label :note_contents %>
-  <%= f.text_field :note_contents %>
+  <input id="song_notes_2" name="song[note_contents][]" type="text"/>
   <%= f.label :note_contents %>
-  <%= f.text_field :note_contents %>
+  <input id="song_notes_3" name="song[note_contents][]" type="text"/>
 
   <%= f.submit %>
 <% end %>
