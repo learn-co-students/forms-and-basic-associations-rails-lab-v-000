@@ -1,11 +1,34 @@
+require 'pry'
+
 <h1>Create a Song</h1>
 
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-  <br />
+<br/>
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+
+  <br/>
+  <%= f.label :genre_name %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %><br>
+    
+</br>
+<%= f.label :note_contents %>
+  <input id="song_notes_1" name="song[note_contents][]">
+  <input id="song_notes_2" name="song[note_contents][]">
+  <input id="song_notes_3" name="song[note_contents][]">
 
   <%= f.submit %>
 <% end %>
 
 
+
+<!-- A text input box for the artist.
+A selection box for genre. Users should be able to pick amongst
+ existing genres only.
+Several text input boxes to add notes to the song. These should have the
+IDs song_notes_1, song_notes_2, and so on for the specs to pass.
+ (You might need to search
+around for how to pass an array using strong_params!)
+There are feature tests! -->
