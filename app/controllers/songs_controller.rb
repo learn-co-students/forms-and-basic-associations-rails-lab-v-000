@@ -12,6 +12,7 @@ class SongsController < ApplicationController
   end
 
   def create
+    
     @song = Song.new(song_params)
 
     if @song.save
@@ -50,4 +51,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title)
   end
 end
-
