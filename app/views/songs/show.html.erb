@@ -1,3 +1,8 @@
-<h1>Songs#show</h1>
+<h1>Song Show Page</h1>
 
-Title: <%= @song.title %>
+<p><%= @song.title %></p>
+<p><%= link_to @song.artist.name, artist_path(@song) %></p>
+<p><%= @song.genre.name %></p>
+<p><%= @song.note_contents.to_s%></p>
+
+
