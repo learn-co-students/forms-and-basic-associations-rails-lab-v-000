@@ -10,6 +10,7 @@ class Song < ActiveRecord::Base
 
   def genre_name
     self.genre ? self.genre.name : nil
+    # self.try(:genre).try(:name)
   end
 
   def artist_name=(name)
@@ -18,6 +19,7 @@ class Song < ActiveRecord::Base
 
   def artist_name
     self.artist ? self.artist.name : nil
+    # self.try(:artist).try(:name)
   end
 
   def note_contents=(contents)
@@ -26,7 +28,16 @@ class Song < ActiveRecord::Base
     end
   end
 
+  # def note_contents=(notes)
+  # notes.each do |content|
+  #   if content.strip != ''
+  #     self.notes.build(content: content)
+  #     end 
+  #   end
+  # end
+
   def note_contents
     self.notes.map{|note| note.content }
+    # self.notes.map(&:content) -- passing a block
   end
 end
