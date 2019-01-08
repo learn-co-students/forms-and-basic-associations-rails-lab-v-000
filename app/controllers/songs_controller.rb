@@ -47,7 +47,7 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :genre_id, :artist_name, note_contents: []) # or note_contents => []
+    # passing an array using strong params -- to declare that the value in params mus tbe an array of permitted scalar values map the key to an empty array
   end
 end
-
