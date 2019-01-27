@@ -12,14 +12,10 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
+  song = Song.create(song_params)
+  redirect_to controller: 'songs', action: 'index'
+end
 
-    if @song.save
-      redirect_to @song
-    else
-      render :new
-    end
-  end
 
   def edit
     @song = Song.find(params[:id])
@@ -37,17 +33,13 @@ class SongsController < ApplicationController
     end
   end
 
-  def destroy
-    @song = Song.find(params[:id])
-    @song.destroy
-    flash[:notice] = "Song deleted."
-    redirect_to songs_path
-  end
-
-  private
-
+  # def destroy
+  #   @song = Song.find(params[:id])
+  #   @song.destroy
+  #   flash[:notice] = "Song deleted."
+  #   redirect_to songs_path
+  # end
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
   end
 end
-
