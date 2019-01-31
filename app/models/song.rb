@@ -21,17 +21,17 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(song_notes)
+    # binding.pry
     song_notes.each do |note|
-      unless note == ""
+      unless note == ''
         song_note = self.notes.build(content: note)
+        binding.pry
         song_note.save
       end
     end
   end
 
   def note_contents
-    # binding.pry
-
     self.notes.map do |note|
       note.content
     end
