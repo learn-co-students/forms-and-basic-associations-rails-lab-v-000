@@ -10,9 +10,10 @@
   <%= f.label :song_artist_name %>
   <%= f.text_field :artist_name %>
   <br />
-  <input id="song_notes_1" name="song[:note_contents][]"/>
-  <input id="song_notes_2" name="song[:note_contents][]"/>
-  <input id="song_notes_3" name="song[:note_contents][]"/>
+  <input id="song_notes_1" name="song[note_contents][]"/>
+  <input id="song_notes_2" name="song[note_contents][]"/>
+  <input id="song_notes_3" name="song[note_contents][]"/>
+  #no colon at note_contents!! only use colon to reference key in a hash. this is a nested attribute not a hash
   <br />
   <%= f.submit %>
 <% end %>

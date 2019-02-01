@@ -12,29 +12,24 @@ class Song < ActiveRecord::Base
   end
 
 
-  def song_genre_id=(name)
+  def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
   end
 
-  def song_genre_id
+  def genre_name
      self.genre ? self.genre.name : nil
   end
 
-  def note_contents=(song_notes)
-    # binding.pry
-    song_notes.each do |note|
-      unless note == ''
-        song_note = self.notes.build(content: note)
-        binding.pry
-        song_note.save
-      end
+  def note_contents=(contents)
+    contents.each do |content|
+      note = Note.find_or_create_by(content: content)
+      self.notes << note if note.valid?
+      self.save
     end
   end
 
   def note_contents
-    self.notes.map do |note|
-      note.content
-    end
+    self.notes.map {|n| n.content}
   end
 
 
