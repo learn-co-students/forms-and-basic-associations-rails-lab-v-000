@@ -11,6 +11,8 @@
   <datalist id="genres_autocomplete">
     <% Genre.all.each do |genre| %>
       <option value="<%= genre.name %>">
-        <%end%>
+    <%end%>
+  </datalist>
+  
   <%= f.submit %>
 <% end %>
