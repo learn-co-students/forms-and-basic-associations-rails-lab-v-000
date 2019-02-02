@@ -9,7 +9,7 @@ class Song < ActiveRecord::Base
   end
 
   def artist_name
-      self.artist ? self.artist.name : nil
+    self.artist ? self.artist.name : nil
   end
 
   def genre_name=(name)
@@ -20,12 +20,20 @@ class Song < ActiveRecord::Base
       self.genre ? self.genre.name : nil
   end
 
-  def note_contents=(content)
-    self.notes = Note.find_or_create_by(content: content)
+  def note_contents=(contents)
+    contents.each do |content|
+      if content.strip != ''
+        self.notes << Note.create(:content => content)
+      end
+    end
   end
 
   def note_contents
-    self.notes.contents ? self.note.content : nil
+    contents = []
+    self.notes.each do |note|
+      contents << note.content
+    end
+    contents
   end
 
 

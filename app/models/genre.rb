@@ -8,4 +8,5 @@ class Genre < ActiveRecord::Base
       self.songs << song
     end
   end
+
 end
