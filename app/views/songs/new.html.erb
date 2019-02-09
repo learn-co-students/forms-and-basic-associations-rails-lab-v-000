@@ -4,6 +4,20 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br />
+    <br>
+  <%= f.label :artist_name %>
+  <%= f.text_field :artist_name %>
+  <br />
+
+   <%= f.label :genre_id %>
+  <%= f.select(:genre_id, Genre.all.collect {|g| [ g.name, g.id ] }) %>
+  <br>
+  <%= label_tag "song_notes_1", "Note 1"  %>
+  <%= text_area_tag "song[notes][]", nil, id: "song_notes_1" %>
+  <br>
+  <%= label_tag "song_notes_2", "Note 2"  %>
+  <%= text_area_tag "song[notes][]", nil, id: "song_notes_2" %>
+  <br>
 
   <%= f.submit %>
 <% end %>
