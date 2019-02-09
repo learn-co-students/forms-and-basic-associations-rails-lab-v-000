@@ -3,9 +3,24 @@
 <%= form_for @song  do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
+
+  <%= f.label :song_artist_name %>
+  <%= f.text_field :artist_name %>
+
+  <%= f.text_field :genre_name, list: "song_genre_id" %>
+
+  <input type ="datalist" name="song[genre_name]" id="song_genre_id" list="song_genre_id" >
+
+  <datalist id="song_genre_id">
+    <% Genre.all.each do |genre| %>
+      <option value="<%= genre.name %>" id="song_genre_id">
+    <% end %>
+  </datalist>
+
+  <input type ="text" name="song[note_contents][]" id = "song_notes_1">
+  <input type ="text" name="song[note_contents][]" id = "song_notes_2">
+
   <br />
 
   <%= f.submit %>
 <% end %>
-
-
