@@ -1,3 +1,5 @@
+binding.pry
+
 class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
@@ -19,12 +21,18 @@ class Song < ActiveRecord::Base
      self.genre ? self.genre.name : nil
   end
 
-    def note_contents=(content)
+  def note_contents=(content)
+    if content != ""
        note = Note.find_or_create_by(content: content)
-       self.notes << note 
-     end
+       self.notes << note
+    end
+  end
 
-     def note_contents
-        self.note ? self.note.content : nil
-     end
+   def note_contents
+      self.notes.each do |note|
+        note.content
+      end
+   end
+end
+
 end
