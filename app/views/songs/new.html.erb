@@ -5,8 +5,8 @@
   <%= f.text_field :title %>
   <%= f.label :artist_name %>
   <%= f.text_field :artist_name %>
-  <%= f.label :genre_name %>
-  <%= f.collection_select :genre_name, Genre.all, :id, :name %>
+  <%= f.label :genre_id %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <label>Song Notes:</label>
   <input name="song[note_contents][]" id="song_notes_1">
   <input name="song[note_contents][]" id="song_notes_2">
