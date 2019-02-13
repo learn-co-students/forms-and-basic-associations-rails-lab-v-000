@@ -1,7 +1,7 @@
 class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
-  has_many :notes 
+  has_many :notes
 
   def artist_name=(name)
      self.artist = Artist.find_or_create_by(name: name)
@@ -20,7 +20,8 @@ class Song < ActiveRecord::Base
   end
 
     def note_contents=(content)
-       self.note = Note.find_or_create_by(content: content)
+       note = Note.find_or_create_by(content: content)
+       self.notes << note 
      end
 
      def note_contents
