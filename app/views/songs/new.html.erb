@@ -11,6 +11,16 @@
 
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
 
+  <!–– <select name="song[genre_id]" id="song_genre_id"> -->
+  <!-- <option value="1">Pop</option> -->
+  <!-- <option value="2">R&B</option> -->
+  <!-- <option value="3">Rock</option> -->
+  <!-- </select> -->
+  
+
+
+
+
   <%= f.label :note %>
     <input name="song[note_contents][]" id="song_notes_1"/>
     <input name="song[note_contents][]" id="song_notes_2"/>
