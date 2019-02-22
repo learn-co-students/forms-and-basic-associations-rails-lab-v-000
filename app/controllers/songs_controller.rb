@@ -1,4 +1,8 @@
+# require 'pry'
+
+
 class SongsController < ApplicationController
+
   def index
     @songs = Song.all
   end
@@ -11,7 +15,12 @@ class SongsController < ApplicationController
     @song = Song.new
   end
 
+  # binding.pry
+
   def create
+    # binding.pry
+    # byebug
+
     @song = Song.new(song_params)
 
     if @song.save
@@ -45,9 +54,17 @@ class SongsController < ApplicationController
   end
 
   private
-
+# binding.pry
   def song_params
-    params.require(:song).permit(:title)
+    # binding.pry
+    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
   end
+
+
+
 end
 
+# if its a url like google.com/search when you press enter, that sends a get request to that
+#   route, /search back to google servers. those serbers then receive the request and finds the route
+#   in their codebase. the route correseponds to a controller, which you hit, and which has access to the params.
+#
