@@ -11,9 +11,8 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
-  def genre_name=(genre_id)
-    # byebug
-    self.genre = Genre.find_or_create_by(id: genre_id)
+  def genre_name=(genre_name)
+    self.genre = Genre.find_or_create_by(name: genre_name)
   end
 
   def genre_name
@@ -22,7 +21,7 @@ class Song < ActiveRecord::Base
 
   def note_contents=(notes)
     notes.each do |note|
-      if note != ""
+      if note != ''
         note = Note.create(content: note)
         self.notes << note
       end
