@@ -17,19 +17,19 @@ class Song < ActiveRecord::Base
   end
 
   def genre_name
-    # byebug
     self.genre ? self.genre.name : nil
   end
 
   def note_contents=(notes)
-    byebug
     notes.each do |note|
-      note = Note.create(note)
-      self.notes << note
+      if note != ""
+        note = Note.create(content: note)
+        self.notes << note
+      end
     end
   end
 
   def note_contents
-    self.notes ? self.notes : nil
+    self.notes.map(&:content)
   end
 end
