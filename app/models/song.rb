@@ -23,13 +23,13 @@ class Song < ActiveRecord::Base
 
   def note_contents=(notes)
     byebug
-    notes.each do | note |
+    notes.each do |note|
       note = Note.create(note)
-      self.note_contents << note
+      self.notes << note
     end
   end
 
   def note_contents
-    self.note_contents ? self.note_contents : nil
+    self.notes ? self.notes : nil
   end
 end
