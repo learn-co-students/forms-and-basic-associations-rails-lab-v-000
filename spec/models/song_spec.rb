@@ -67,4 +67,12 @@ RSpec.describe Song, type: :model do
     end
   end
 
+  def note_contents
+    arr = []
+    self.notes.each do |note|
+      arr << note.content unless note.content.empty?
+    end
+    arr
+  end
+
 end
