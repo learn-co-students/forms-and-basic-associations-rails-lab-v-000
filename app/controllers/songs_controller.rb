@@ -12,11 +12,21 @@ class SongsController < ApplicationController
     @song = Song.new
   end
 
-  def create
+
     #binding.pry
-    @song = Song.create(song_params)
-      redirect_to @song
+  #   @song = Song.create(song_params)
+  #     redirect_to controller:"songs", action:"index"
+  # end
+  def create
+  @song = Song.new(song_params)
+
+  if @song.save
+    redirect_to @song
+  else
+    render :new
   end
+end
+
 
   def edit
     @song = Song.find(params[:id])
@@ -44,6 +54,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:artist_name, :title, :content, :genre_name)
+    params.require(:song).permit(:artist_name, :title, :genre_id, note_contents: [])
   end
 end
