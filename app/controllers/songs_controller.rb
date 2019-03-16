@@ -1,3 +1,4 @@
+require "pry"
 class SongsController < ApplicationController
   def index
     @songs = Song.all
@@ -12,13 +13,9 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.new(song_params)
-
-    if @song.save
+    #binding.pry
+    @song = Song.create(song_params)
       redirect_to @song
-    else
-      render :new
-    end
   end
 
   def edit
@@ -47,7 +44,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:artist_name, :title, :content, :genre_name)
   end
 end
-
