@@ -26,21 +26,18 @@ class Song < ActiveRecord::Base
 	end
 
 	def note_contents=(notes)
-		binding.pry
-		self.notes.each do |note|
-			@note = Note.new
-			@note.song.notes.build(note)
-			@note.save
+		notes.each do |note|
+			if note.present?
+				@note = self.notes.build(content: note)
+				@note.save
+			end
 		end
 	end
 
 	def note_contents
-		# binding.pry
-	# 	if self.notes.present?
-	# 		self.notes.each do |note|
-	# 			self.notes << note
-	# 		end
-	# 	end
+		 self.notes.map do |note|
+		 	note.content
+		 end
 	end	
 
 end
