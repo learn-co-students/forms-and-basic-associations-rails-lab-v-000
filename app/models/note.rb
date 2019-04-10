@@ -1,3 +1,3 @@
 class Note < ActiveRecord::Base
-  has_one :song
+  belongs_to :song
 end

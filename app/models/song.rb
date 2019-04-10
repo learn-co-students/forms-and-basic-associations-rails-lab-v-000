@@ -20,11 +20,16 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(note_contents)
-    self.notes << Note.find_or_create_by(content: content)
+    # binding.pry
+    note_contents.each do |content|
+      if !content.empty?
+        self.notes.build(content: content)
+      end
+    end
   end
 
   def note_contents
-    self.notes.each {|note| note.content ? note.content : nil}
+    self.notes.map {|note| note.content ? note.content : nil}
   end
 
 end
