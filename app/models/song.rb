@@ -5,15 +5,18 @@ class Song < ActiveRecord::Base
 
   # Define setters and getters
 
-  def note_contents=(ids)
-    ids.each do |id|
-      note = Note.find(id)
-      self.notes << note
+  def note_contents=(contents)
+    # byebug
+    contents.each do |content|
+      if content != ""
+        note = Note.find_or_create_by(content: content)
+        self.notes << note
+      end
     end
   end
 
   def note_contents
-    self.notes
+    self.notes.map {|note| note.content}
   end
 
   def artist_name=(name)
