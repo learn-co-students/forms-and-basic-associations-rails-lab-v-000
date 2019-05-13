@@ -1,5 +1,6 @@
 class Song < ActiveRecord::Base
   # add associations here
+  has_many :notes
   belongs_to :artist
   belongs_to :genre
 
@@ -17,5 +18,20 @@ class Song < ActiveRecord::Base
 
   def genre_name
     self.genre ? self.genre.name : nil
+  end
+
+  def note_contents=(contents)
+    contents.each do |content|
+      if !content.empty?
+        note = Note.find_or_create_by(content: content)
+        self.notes << note
+      end
+    end
+  end
+
+  def note_contents
+    self.notes.map do |note|
+      note.content
+    end
   end
 end
