@@ -11,6 +11,10 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
+  def genre_id=(id)
+    self.genre = Genre.find(id)
+  end
+
   def genre_name=(name)
     self.genre = Genre.find_or_create_by(name: name)
   end
@@ -19,11 +23,19 @@ class Song < ActiveRecord::Base
     self.genre ? self.genre.name : nil
   end
 
-  def note_contents=(content)
-    self.note = Note.find_or_create_by(content: content)
+  def note_contents=(contents)
+
+    contents.each do |content|
+      if content != nil && !content.delete(" ").empty?
+        note = Note.create(content: content)
+        self.notes << note
+      end
+    end
+
   end
 
   def note_contents
-    self.note.content ? self.note.content : nil
+    self.notes.map {|note| note.content}
   end
+
 end
