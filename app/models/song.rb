@@ -3,6 +3,8 @@ class Song < ActiveRecord::Base
   belongs_to :artist
   belongs_to :genre
   has_many :notes
+
+  #custom getters and setters
   
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
