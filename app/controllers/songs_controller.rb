@@ -9,11 +9,15 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    #remember that song_ is a prefix automatically associated with the song model
+    #kind of like _path with the routes
+    #If we want to let the user pick from existing categories, we can use a Collection Select helper to render a <select> tag:
+    #http://jebediahelliott.com/what_the_heck_is_collection_select
   end
 
   def create
-    @song = Song.new(song_params)
-
+    @song = Song.create(song_params)
+    #https://github.com/learn-co-curriculum/forms-and-basic-associations-rails-lab/issues/16
     if @song.save
       redirect_to @song
     else
@@ -47,7 +51,8 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:title, :artist_name, :genre_id, :note_contents => [])
+    #you need to permit what you need.
   end
 end
 
