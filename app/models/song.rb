@@ -28,8 +28,8 @@ class Song < ActiveRecord::Base
     notes
   end
 
-  def note_contents=(note_ids)
-    note_ids.each do |n|
+  def note_contents=(array)
+    array.each do |n|
       if n != ""
         note = Note.create(content: n)
         self.notes << note
