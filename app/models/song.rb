@@ -6,6 +6,7 @@ class Song < ActiveRecord::Base
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
+    binding.pry
   end
   
   def artist_name
@@ -21,9 +22,9 @@ class Song < ActiveRecord::Base
   end
 
   def note_contents=(notes)
-    notes.each do |n|
-      if !n = ''
-        self.notes.build(content: notes)
+    notes.each do |content|
+      if content.strip != ''
+        self.notes.build(content: content)
       end
     end
     binding.pry
