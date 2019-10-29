@@ -26,8 +26,7 @@ In this lab, we're going to make a song library. Our data model looks like this:
 ## Instructions
 
 The base models, controllers, and seed data have been provided for you, but the
-associations have not been wired up. Artists and genres have many songs. Songs
-belong to both and have many notes. Notes belong to songs.
+associations have not been wired up.
 
 - Write `app/views/songs/new.html.erb`. This form should have:
   - A text input box that sets the song's title.
@@ -38,5 +37,7 @@ belong to both and have many notes. Notes belong to songs.
     `song_notes_1`, `song_notes_2`, and so on for the specs to pass. (You might need
     to search around for how to pass an array using `strong_params`!)
     There are feature tests!
+
+  **Hint:**  Write the `genre` getter and setter methods in the `Song` model.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' title='Forms And Basic Associations Rails Lab'>Forms And Basic Associations Rails Lab</a> on Learn.co and start learning to code for free.</p>
