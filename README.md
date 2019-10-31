@@ -27,7 +27,13 @@ about various `Song`s. Our data model looks like this:
 
 ## Instructions
 
-The base models, controllers, and seed data have been provided for you.
+1. The base models, controllers, and seed data have been provided for you.
+2. You should create and migrate the database before starting to develop your
+   solution.
+3. Seeding the database provides many `Genre`s. You will add data about
+   `Artist`s, `Note`s, and `Song`s during the development of this application.
+   The `ArtistsController` and `SongsController` have been built out so that you
+   can do this.
 
 First, connect the models by using the `ActiveRecord` association commands.
 
