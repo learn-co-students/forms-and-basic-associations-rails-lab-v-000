@@ -21,19 +21,20 @@ class Song < ActiveRecord::Base
        self.genre ? self.genre.name : nil
     end
     # don't need setter/getter with accepts_nested_attributes_for :notes
-=begin
-    def note_contents=(contents)
-      # if contents not empty, create note with content and song id
-      # push note to song's notes
-      contents.each do |content|
-        if !content.empty?
-          note = Note.create(content: content, song_id: self.id)
-          self.notes << note
+    # can make custom setter
+    def notes_attributes=(notes_hashes)
+      notes_hashes.values.each do |note_attributes|
+        # DO NOT CREATE A NOTE IF IT DOESN'T HAVE CONTENT
+        if note_attributes[:content].present?
+          note = Note.find_or_create_by(content: note_attributes[:content])
+          # DON'T ADD A NOTE  TO A SONG IF IT ALREADY HAS IT
+          if !self.notes.include?(note)
+            self.notes << note
+          end
         end
       end
-
     end
-
+=begin
     def note_contents
       self.notes.collect { |note| note.contents}
     end

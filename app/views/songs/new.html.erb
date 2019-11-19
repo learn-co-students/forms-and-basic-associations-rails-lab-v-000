@@ -9,23 +9,10 @@
   <%= f.label :genre %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   <br><br>
-  <%= f.fields_for :notes do |note| %>
-    <%= note.label :note %>
-    <%= note.text_field :content %><br>
+  <%= f.fields_for :notes do |notes_fields| %>
+    <%= notes_fields.label :note %>
+    <%= notes_fields.text_field :content %><br>
   <% end %>
-
-
-
-
-  <!--%= f.label :notes %>
-  <input name="song[note_contents][]" id="song_notes_attributes_0_content">
-  <br>
-  <%= f.label :notes %>
-  <input name="song[note_contents][]" id="song_notes_attributes_1_content">
-  <br>
-  <%= f.label :notes %>
-  <input name="song[note_contents][]" id="song_notes_attributes_2_content">
-  <br><br-->
 
   <%= f.submit %>
 <% end %>
