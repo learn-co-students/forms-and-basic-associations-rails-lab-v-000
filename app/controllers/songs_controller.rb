@@ -10,8 +10,9 @@ class SongsController < ApplicationController
   def new
     @song = Song.new
     # create 2 blank notes for form
-    @song.notes.build(content: "")
-    @song.notes.build(content: "")
+    2.times do
+      @song.notes.build(content: "")
+    end
   end
 
   def create
