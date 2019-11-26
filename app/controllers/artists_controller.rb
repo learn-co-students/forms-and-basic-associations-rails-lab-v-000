@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.new(artist_params)
-
+    
     if @artist.save
       redirect_to @artist
     else
