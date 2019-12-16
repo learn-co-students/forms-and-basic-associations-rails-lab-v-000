@@ -7,3 +7,16 @@
 <p>
   Artist: <%= @song.artist_name %>
 </p>
+
+<p>
+  Genre: <%= @song.genre.try(:name) %>
+</p>
+
+<p>
+  Notes:
+  <ul>
+    <% @song.notes.each do |note| %>
+      <li><%= note.content %></li>
+    <% end %>
+  </ul>
+</p>

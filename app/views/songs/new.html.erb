@@ -5,6 +5,15 @@
   <%= f.text_field :title %>
   <br />
 
+  <!-- I think this can technically work, but it would require me to change my controller, and it would fail the tests. -->
+  <!-- The input id is artist_name, instead of song_artist_name. The params also change. -->
+  <!-- Update: This may not work; I don't think #fields_for will work when the song belongs_to an artist. -->
+  <%#= fields_for :artist do |a| %>
+    <%#= a.label :name, "Artist" %>
+    <%#= a.text_field :name %>
+  <%# end %>
+  <!-- <br /> -->
+
   <%= f.label :artist_name, "Artist" %>
   <%= f.text_field :artist_name %>
   <br />
@@ -12,6 +21,17 @@
   <%= f.label :genre_id %>
   <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %>
   <br />
+
+  <h3>Notes:</h3>
+  <%= f.label :notes_1, "Note 1:" %>
+  <input name="song[note_contents][]" id="song_notes_1" /><br />
+  <%= f.label :notes_2, "Note 2:" %>
+  <input name="song[note_contents][]" id="song_notes_2" /><br />
+  <%= f.label :notes_3, "Note 3:" %>
+  <input name="song[note_contents][]" id="song_notes_3" /><br />
+  <br />
+
+  <!-- Originally, I used #fields_for above here ^^^. That works, but it's not needed, at least for now. -->
 
   <%= f.submit %>
 <% end %>

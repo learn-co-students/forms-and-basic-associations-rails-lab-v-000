@@ -8,12 +8,15 @@ class SongsController < ApplicationController
   end
 
   def new
+    # @song = setup_song(Song.new) # This works as well and may be better.
     @song = Song.new
+    # setup_song
+    # binding.pry
   end
 
   def create
-    raise params.inspect
     @song = Song.new(song_params)
+    # binding.pry
 
     if @song.save
       redirect_to @song
@@ -48,7 +51,11 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name)
+    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
   end
+
+  # def setup_song
+  #   5.times { @song.notes.build }
+  # end
 end
 
