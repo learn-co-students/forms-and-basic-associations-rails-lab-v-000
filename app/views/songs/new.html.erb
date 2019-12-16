@@ -23,16 +23,21 @@
   <br />
 
   <h3>Notes:</h3>
-  <%= f.label :notes_1, "Note 1:" %>
-  <input name="song[note_contents][]" id="song_notes_1" /><br />
-  <%= f.label :notes_2, "Note 2:" %>
-  <input name="song[note_contents][]" id="song_notes_2" /><br />
-  <%= f.label :notes_3, "Note 3:" %>
-  <input name="song[note_contents][]" id="song_notes_3" /><br />
-  <br />
+  <%= f.fields_for :notes do |note_fields| %>
+    Content: <%= note_fields.text_area :content %><br />
+  <% end %>
 
-  <!-- Originally, I used #fields_for above here ^^^. That works, but it's not needed, at least for now. -->
-
+  <!-- This is what the T.C. and I came up with, since we switched to a previous test version.
+    <h3>Notes:</h3>
+    <%#= f.label :notes_1, "Note 1:" %>
+    <input name="song[note_contents][]" id="song_notes_1" /><br />
+    <%#= f.label :notes_2, "Note 2:" %>
+    <input name="song[note_contents][]" id="song_notes_2" /><br />
+    <%#= f.label :notes_3, "Note 3:" %>
+    <input name="song[note_contents][]" id="song_notes_3" /><br />
+    <br />
+  -->
+  
   <%= f.submit %>
 <% end %>
 

@@ -4,19 +4,20 @@ class Song < ActiveRecord::Base
   belongs_to :genre
 
   has_many :notes
-  #accepts_nested_attributes_for :notes
+  accepts_nested_attributes_for :notes, reject_if: :blank_content
 
-  def note_contents=(contents)
-    contents.each do |content|
-      self.notes.build(content: content) unless content.blank?
-    end
-  end
+  # This was for a previous version of the tests.
+  # def note_contents=(contents)
+  #   contents.each do |content|
+  #     self.notes.build(content: content) unless content.blank?
+  #   end
+  # end
 
-  def note_contents
-    if self.notes
-      self.notes.collect {|note| note.content}
-    end
-  end
+  # def note_contents
+  #   if self.notes
+  #     self.notes.collect {|note| note.content}
+  #   end
+  # end
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
@@ -24,5 +25,9 @@ class Song < ActiveRecord::Base
 
   def artist_name
     self.artist ? self.artist.name : nil
+  end
+
+  def blank_content(note)
+    note[:content].blank?
   end
 end

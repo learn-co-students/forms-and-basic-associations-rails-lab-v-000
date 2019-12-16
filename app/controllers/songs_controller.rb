@@ -10,11 +10,12 @@ class SongsController < ApplicationController
   def new
     # @song = setup_song(Song.new) # This works as well and may be better.
     @song = Song.new
-    # setup_song
+    setup_song
     # binding.pry
   end
 
   def create
+    # binding.pry
     @song = Song.new(song_params)
     # binding.pry
 
@@ -51,11 +52,11 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: [])
+    # params.require(:song).permit(:title, :artist_name, :genre_id, note_contents: []) # For the previous test version.
+    params.require(:song).permit(:title, :artist_name, :genre_id, notes_attributes: [:content])
   end
 
-  # def setup_song
-  #   5.times { @song.notes.build }
-  # end
+  def setup_song
+    5.times { @song.notes.build }
+  end
 end
-
