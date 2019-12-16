@@ -24,8 +24,10 @@
 
   <h3>Notes:</h3>
   <%= f.fields_for :notes do |note_fields| %>
-    Content: <%= note_fields.text_area :content %><br />
+    Note content <%= note_fields.index + 1 %>: 
+    <%= note_fields.text_area :content %><br />
   <% end %>
+  <br />
 
   <!-- This is what the T.C. and I came up with, since we switched to a previous test version.
     <h3>Notes:</h3>
@@ -37,7 +39,7 @@
     <input name="song[note_contents][]" id="song_notes_3" /><br />
     <br />
   -->
-  
+
   <%= f.submit %>
 <% end %>
 
