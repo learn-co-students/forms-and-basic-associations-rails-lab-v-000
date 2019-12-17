@@ -59,7 +59,7 @@ form builder view helpers. Here are some hints:
 
 ## References
 
-* [`has_many` association reference](https://guides.rubyonrails.org/association_basics.html#has-one-association-reference)
+* [`has_many` association reference](https://guides.rubyonrails.org/association_basics.html#has-many-association-reference)
 * [`belongs_to` association reference](https://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
 * [`accepts_nested_attributes_for`](https://apidock.com/rails/v5.2.3/ActiveRecord/NestedAttributes/ClassMethods/accepts_nested_attributes_for)
 * [Specifying which parameters are accepted in Rails Controllers](https://apidock.com/rails/ActionController/Parameters/permit)
