@@ -4,6 +4,8 @@ class Song < ActiveRecord::Base
   belongs_to :genre
   has_many :notes
 
+  accepts_nested_attributes_for :notes, :allow_destroy => true
+
   def artist_name=(name)
     self.artist = Artist.find_or_create_by(name: name)
     #setter method is called whenever Song is initialized with an artist_name field
@@ -13,20 +15,11 @@ class Song < ActiveRecord::Base
     self.artist ? self.artist.name : nil
   end
 
-  def genre_name=(name)
+  def genre_id=(name)
     self.genre = Genre.find_or_create_by(name: name)
   end
 
-  def genre_name
+  def genre_id
     self.genre ? self.genre.name : nil
   end
-
-  # def notes_attributes=(hash)
-  #     hash.each do |attribute|
-  #       note = Note.find_or_create_by()
-  #       self.notes << note
-  #     end
-
-
-
 end
