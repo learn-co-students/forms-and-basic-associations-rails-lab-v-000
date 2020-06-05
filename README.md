@@ -2,8 +2,8 @@
 
 ## Objectives
 
-1.  Practice defining associations
-2.  Practice building forms in ERB when working with nested models
+1. Practice defining associations
+2. Practice building forms in ERB when working with nested models
 
 ## A `Song` Library
 
@@ -40,15 +40,16 @@ First, connect the models by using the `ActiveRecord` association commands.
 Next, update the minimal `app/views/songs/new.html.erb`.
 
 This view should have a form that provides:
-  - A text input box that sets the `Song`'s title.
-  - A text input box for the `Artist`.
-  - A selection box for `Genre`. Users should be able to pick amongst existing genres only.
-  - Several text input boxes to add notes to the song.
 
-This is a challenging lab because we want you to use Rails' powerful nested
-form builder view helpers. Here are some hints:
+- A text input box that sets the `Song`'s title.
+- A text input box for the `Artist`.
+- A selection box for `Genre`. Users should be able to pick amongst existing genres only.
+- Several text input boxes to add notes to the song. These should have the IDs
+  `song_notes_1`, `song_notes_2`, and so on for the specs to pass.
 
-- You might need to reference information on passing an `Array` using `strong_params`
+This is a challenging lab. Here are some hints:
+
+- You might need to search around for how to pass an array using `strong_params`!
 - It's easy to get confused between getting an `Artist` _instance_ from a
   `Song` and an `Artist`'s name. To help make your form work easier, solve the
   `spec/models/song_spec.rb` _first_. You can run a single spec by invoking it
@@ -61,9 +62,7 @@ form builder view helpers. Here are some hints:
 
 * [`has_many` association reference](https://guides.rubyonrails.org/association_basics.html#has-many-association-reference)
 * [`belongs_to` association reference](https://guides.rubyonrails.org/association_basics.html#belongs-to-association-reference)
-* [`accepts_nested_attributes_for`](https://apidock.com/rails/v5.2.3/ActiveRecord/NestedAttributes/ClassMethods/accepts_nested_attributes_for)
 * [Specifying which parameters are accepted in Rails Controllers](https://apidock.com/rails/ActionController/Parameters/permit)
-* [`fields_for` form helper](https://api.rubyonrails.org/v5.2.3/classes/ActionView/Helpers/FormHelper.html#method-i-fields_for)
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/forms-and-basic-associations-rails-lab' title='Forms And Basic Associations Rails Lab'>Forms And Basic Associations Rails Lab</a> on Learn.co and start learning to code for free.</p>
 
