@@ -9,6 +9,10 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    # create 2 blank notes for form
+    2.times do
+      @song.notes.build(content: "")
+    end
   end
 
   def create
@@ -23,6 +27,7 @@ class SongsController < ApplicationController
 
   def edit
     @song = Song.find(params[:id])
+    @song.notes.build(content: "")
   end
 
   def update
@@ -47,7 +52,6 @@ class SongsController < ApplicationController
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:artist_name, :title, :genre_id, notes_attributes: [:content])
   end
 end
-
