@@ -8,6 +8,9 @@
 
 # ID3 tag music genres are surprisingly specific.
 
+
+Song.create(title: "New Song", artist_name: "New Artist", genre_name: "Blues")
+
 genres = Hash[[
   "Blues",
   "Classic Rock",
