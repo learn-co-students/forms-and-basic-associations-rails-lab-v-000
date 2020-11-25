@@ -29,6 +29,7 @@ class Song < ActiveRecord::Base
 
   def note_contents
   	self.notes.map(&:content)
+    #same as self.notes.map{|n| n.content}
   end
 
 end
