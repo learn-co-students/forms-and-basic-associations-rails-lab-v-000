@@ -24,6 +24,9 @@ class Song < ActiveRecord::Base
     self.genre ? self.genre.name : nil
   end
 
+  #for notes
+
+
   def note_contents=(contents)
     contents.each do |content|
       if !content.empty?
@@ -32,8 +35,6 @@ class Song < ActiveRecord::Base
       end
     end
   end
-#for notes
-
   def note_contents
   self.notes.map { |note| note.content }
   end
