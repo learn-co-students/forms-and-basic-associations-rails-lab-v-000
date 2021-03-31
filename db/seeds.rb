@@ -160,3 +160,4 @@ genres = Hash[[
 ].map { |genre| [genre, Genre.find_or_create_by(name: genre)] }]
 
 
+puts "data loaded success"
