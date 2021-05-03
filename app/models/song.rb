@@ -17,6 +17,15 @@ class Song < ActiveRecord::Base
   end
 
   def genre_id
-    self.genre ? self.genre.id : nil
+    self.genre ? self.genre.name : nil
+  end
+
+  def note_ids=(contents)
+    contents.each do |content|
+      if content.empty? == false
+        note = Note.create(content: content)
+        self.notes << note
+      end
+    end
   end
 end
