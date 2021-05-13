@@ -44,10 +44,11 @@ class SongsController < ApplicationController
     redirect_to songs_path
   end
 
+ 
   private
 
   def song_params
-    params.require(:song).permit(:title)
+    params.require(:song).permit(:artist_name, :title, :genre_id, notes_contents:[])
   end
 end
 
