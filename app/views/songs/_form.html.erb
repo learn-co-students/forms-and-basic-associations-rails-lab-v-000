@@ -1,6 +1,4 @@
-<h1>Editing <%= @song.title %></h1>
-
-<%= form_for @song  do |f| %>
+<%= form_for @song do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %><br>
   <%= f.label :artist_name %>
@@ -15,5 +13,3 @@
 
   <%= f.submit %>
 <% end %>
-
-
